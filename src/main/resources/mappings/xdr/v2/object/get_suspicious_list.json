@@ -1,0 +1,29 @@
+{
+  "request": {
+    "urlPath": "/v2.0/xdr/threatintel/suspiciousObjects",
+    "method": "GET"
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "data": {
+        "nextLink": "https://api.xdr.trendmicro.com/v2.0/xdr/threatintel/suspiciousObjects?limit=20&skipToken=eyJpZCI6IjI1MGQxMmE3ZDQyMmVhM",
+        "suspiciousObjectList": [
+          {
+            "type": "domain",
+            "value": "1.alisiosanguera.com.cn",
+            "description": "it is an example Suspicious Object record",
+            "scanAction": "log",
+            "riskLevel": "high",
+            "hitException": false,
+            "lastModified": "2021-03-22T03:08:40Z",
+            "expiredTime": "2021-04-22T03:08:40Z"
+          }
+        ]
+      }
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

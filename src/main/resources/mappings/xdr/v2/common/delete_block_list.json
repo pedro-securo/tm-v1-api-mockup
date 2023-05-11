@@ -1,0 +1,21 @@
+{
+  "request": {
+    "urlPath": "/v2.0/xdr/response/restoreBlock",
+    "method": "POST",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$.valueType"
+      },
+      {
+        "matchesJsonPath": "$.targetValue"
+      }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": { "actionId": 88139521, "taskStatus": "pending" },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

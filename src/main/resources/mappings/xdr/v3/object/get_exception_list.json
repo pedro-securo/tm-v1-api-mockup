@@ -1,0 +1,23 @@
+{
+  "request": {
+    "urlPath": "/v3.0/threatintel/suspiciousObjectExceptions",
+    "method": "GET"
+  },
+  "response": {
+    "status": 200,
+    "transformers": ["response-template"],
+    "jsonBody": {
+      "items": [
+        {
+          "url": "https://*.example.com/path1/*",
+          "type": "url",
+          "description": "object description",
+          "lastModifiedDateTime": "{{now offset='-1 days'}}"
+        }
+      ]
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

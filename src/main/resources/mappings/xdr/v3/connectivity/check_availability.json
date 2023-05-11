@@ -1,0 +1,18 @@
+{
+  "request": {
+    "urlPath": "/v3.0/healthcheck/connectivity",
+    "method": "GET"
+  },
+  "response": {
+    "status": 200,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "status": "available"
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

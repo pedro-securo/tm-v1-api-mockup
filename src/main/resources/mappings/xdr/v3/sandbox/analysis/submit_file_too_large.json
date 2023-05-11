@@ -1,0 +1,31 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/sandbox/files/analyze",
+    "method": "POST",
+    "multipartPatterns": [{
+      "matchingType": "ANY",
+      "headers": {
+        "Content-Disposition": {
+          "contains": "tooBig.txt"
+        },
+        "Content-Type": {
+          "contains": "application/octet-stream"
+        }
+      }
+    }]
+  },
+  "response": {
+    "status": 413,
+    "transformers": ["response-template"],
+    "jsonBody": {
+      "error": {
+        "code": "RequestEntityTooLarge",
+        "message": "The submitted file size is larger than supported"
+      }
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

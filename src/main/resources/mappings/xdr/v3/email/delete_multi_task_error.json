@@ -1,0 +1,39 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/response/emails/delete",
+    "method": "POST",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": {
+          "expression": "$..uniqueId",
+          "equalTo": "multi_task_error"
+        }
+      }
+    ]
+  },
+  "response": {
+    "status": 207,
+    "transformers": ["response-template"],
+    "jsonBody": [
+      {
+        "status": 400,
+        "headers": [
+          {
+            "name": "Operation-Location",
+            "value": "https://api.xdr.trendmicro.com/v3.0/xdr/response/tasks/00000001"
+          }
+        ],
+        "body": {
+          "error": {
+            "code": "TaskError",
+            "message": "Task duplication."
+          }
+        }
+      }
+    ],
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

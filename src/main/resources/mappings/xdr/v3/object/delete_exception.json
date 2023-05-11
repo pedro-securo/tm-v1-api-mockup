@@ -1,0 +1,22 @@
+{
+  "request": {
+    "urlPath": "/v3.0/threatintel/suspiciousObjectExceptions/delete",
+    "method": "POST",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.url || @.domain || @.fileSha1 || @.fileSha256 || @.senderMailAddress || @.ip)]"
+      }
+    ]
+  },
+  "response": {
+    "status": 207,
+    "jsonBody": [
+      {
+        "status": 204
+      }
+    ],
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

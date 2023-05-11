@@ -1,0 +1,30 @@
+{
+  "request": {
+    "urlPathPattern": "/v2.0/xdr/response/collectFile",
+    "method": "POST",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$.productId"
+      },
+      {
+        "matchesJsonPath": "$.computerId"
+      },
+      {
+        "matchesJsonPath": "$.filePath"
+      },
+      {
+        "matchesJsonPath": "$.os"
+      }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "actionId": 88139521,
+      "taskStatus": "pending"
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

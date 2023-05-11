@@ -1,0 +1,32 @@
+{
+  "request": {
+    "urlPath": "/v3.0/response/endpoints/terminateProcess",
+    "method": "POST",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.agentGuid || @.endpointName)]"
+      },
+      {
+        "matchesJsonPath": "$..fileSha1"
+      }
+    ]
+  },
+  "response": {
+    "status": 207,
+    "transformers": ["response-template"],
+    "jsonBody": [
+      {
+        "status": 202,
+        "headers": [
+          {
+            "name": "Operation-Location",
+            "value": "{{request.baseUrl}}/v3.0/xdr/response/tasks/00000006"
+          }
+        ]
+      }
+    ],
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

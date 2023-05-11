@@ -1,0 +1,28 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/response/emails/delete",
+    "method": "POST",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": {
+          "expression": "$..uniqueId",
+          "equalTo": "bad_request"
+        }
+      }
+    ]
+  },
+  "response": {
+    "status": 400,
+    "transformers": ["response-template"],
+    "jsonBody": {
+      "error": {
+        "code": "BadRequest",
+        "message": "Invalid request format."
+      }
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/response/emails/delete",
+    "method": "POST",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": {
+          "expression": "$..uniqueId",
+          "equalTo": "failed"
+        }
+      }
+    ]
+  },
+  "response": {
+    "status": 500,
+    "transformers": ["response-template"],
+    "jsonBody": {
+      "error": {
+        "code": "InternalServerError",
+        "message": "Internal server error."
+      }
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "request": {
+    "urlPath": "/v3.0/response/domainAccounts/disable",
+    "method": "POST",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$..accountName"
+      }
+    ]
+  },
+  "response": {
+    "status": 207,
+    "transformers": ["response-template"],
+    "jsonBody": [
+      {
+        "status": 202,
+        "headers": [
+          {
+            "name": "Operation-Location",
+            "value": "{{request.baseUrl}}/v3.0/xdr/response/tasks/00000009"
+          }
+        ]
+      }
+    ],
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

@@ -1,0 +1,175 @@
+{
+  "request": {
+    "urlPathPattern": "/v3.0/workbench/alerts/.*",
+    "method": "GET"
+  },
+  "response": {
+    "status": 200,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "schemaVersion": "1.12",
+      "id": "WB-9002-20220906-00025",
+      "investigationStatus": "New",
+      "workbenchLink": "https://THE_WORKBENCH_URL",
+      "alertProvider": "SAE",
+      "model": "Possible Credential Dumping via Registry",
+      "description": "A user obtained account logon information that can be used to access remote systems via Windows Registry.",
+      "score": 64,
+      "severity": "high",
+      "createdDateTime": "2022-09-06T02:49:33Z",
+      "updatedDateTime": "2022-09-06T02:49:52Z",
+      "impactScope": {
+        "desktopCount": 1,
+        "serverCount": 0,
+        "accountCount": 1,
+        "emailAddressCount": 0,
+        "entities": [
+          {
+            "entityType": "account",
+            "entityValue": "shockwave\\sam",
+            "entityId": "shockwave\\sam",
+            "relatedEntities": [
+              "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+            ],
+            "relatedIndicatorIds": [],
+            "provenance": [
+              "Alert"
+            ]
+          },
+          {
+            "entityType": "host",
+            "entityValue": {
+              "guid": "35FA11DA-A24E-40CF-8B56-BAF8828CC15E",
+              "name": "nimda",
+              "ips": [
+                "10.10.58.51"
+              ]
+            },
+            "entityId": "35FA11DA-A24E-40CF-8B56-BAF8828CC15E",
+            "relatedEntities": [
+              "shockwave\\sam"
+            ],
+            "relatedIndicatorIds": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "provenance": [
+              "Alert"
+            ]
+          }
+        ]
+      },
+      "indicators": [
+        {
+          "id": 1,
+          "type": "command_line",
+          "field": "objectCmd",
+          "value": "c:\\windows\\system32\\reg.exe save hklm\\security security.hive /y",
+          "relatedEntities": [
+            "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+          ],
+          "filterIds": [
+            "f4b062e6-f363-4620-8473-eb929bc9f134"
+          ],
+          "provenance": [
+            "Alert"
+          ]
+        },
+        {
+          "id": 2,
+          "type": "command_line",
+          "field": "processCmd",
+          "value": "c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe -nop -noni -w hidden -enc .......wasqbfafga",
+          "relatedEntities": [
+            "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+          ],
+          "filterIds": [
+            "f4b062e6-f363-4620-8473-eb929bc9f134"
+          ],
+          "provenance": [
+            "Alert"
+          ]
+        },
+        {
+          "id": 3,
+          "type": "command_line",
+          "field": "parentCmd",
+          "value": "c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe -nop -noni -w hidden -c $x=$((gp hkcu:software\\microsoft\\windows update).update); powershell -nop -noni -w hidden -enc $x",
+          "relatedEntities": [
+            "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+          ],
+          "filterIds": [
+            "f4b062e6-f363-4620-8473-eb929bc9f134"
+          ],
+          "provenance": [
+            "Alert"
+          ]
+        },
+        {
+          "id": 4,
+          "type": "fullpath",
+          "field": "processFilePath",
+          "value": "c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe",
+          "relatedEntities": [
+            "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+          ],
+          "filterIds": [
+            "f4b062e6-f363-4620-8473-eb929bc9f134"
+          ],
+          "provenance": [
+            "Alert"
+          ]
+        },
+        {
+          "id": 5,
+          "type": "text",
+          "field": "endpointHostName",
+          "value": "Nimda",
+          "relatedEntities": [
+            "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+          ],
+          "filterIds": [
+            "f4b062e6-f363-4620-8473-eb929bc9f134"
+          ],
+          "provenance": [
+            "Alert"
+          ]
+        }
+      ],
+      "matchedRules": [
+        {
+          "id": "b23bc903-ecfb-4052-90a0-167adb93abb7",
+          "name": "Potential Credential Dumping via Registry",
+          "matchedFilters": [
+            {
+              "id": "f4b062e6-f363-4620-8473-eb929bc9f134",
+              "name": "Possible Credential Dumping via Registry Hive",
+              "matchedDateTime": "2022-09-05T03:38:48.000Z",
+              "mitreTechniqueIds": [
+                "V9.T1003.004",
+                "V9.T1003.002",
+                "T1003"
+              ],
+              "matchedEvents": [
+                {
+                  "uuid": "79c65387-271b-4335-a02d-06aa12b7c5c6",
+                  "matchedDateTime": "2022-09-05T03:38:48.000Z",
+                  "type": "TELEMETRY_PROCESS"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "headers": {
+      "Content-Type": "application/json",
+      "ETag": "33a64df551425fcc55e4d42a148795d9f25f89d4"
+    }
+  }
+}

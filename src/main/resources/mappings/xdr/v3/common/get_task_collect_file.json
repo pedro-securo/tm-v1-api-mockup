@@ -1,0 +1,32 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/response/tasks/00000003",
+    "method": "GET"
+  },
+  "response": {
+    "status": 200,
+    "transformers": ["response-template"],
+    "jsonBody": {
+      "id": "00000003",
+      "status": "succeeded",
+      "createdDateTime": "{{now offset='-1 minutes'}}",
+      "lastActionDateTime": "{{now offset='-1 minutes'}}",
+      "description": "task description",
+      "action": "collectFile",
+      "account": "test",
+      "agentGuid": "cb9c8412-1f64-4fa0-a36b-76bf41a07ede",
+      "endpointName": "trend-host-1",
+      "filePath": "string",
+      "fileSha1": "12a08b7a3c5a10b64700c0aca1a47941b50a4f8b",
+      "fileSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "fileSize": 102400,
+      "resourceLocation": "{{request.baseUrl}}/dummy.zip",
+      "expiredDateTime": "{{now offset='1 days'}}",
+      "password": "xns9ns"
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

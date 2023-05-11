@@ -1,0 +1,29 @@
+{
+  "request": {
+    "urlPath": "/v3.0/response/emails/restore",
+    "method": "POST",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.messageId || @.uniqueId)]"
+      }
+    ]
+  },
+  "response": {
+    "status": 207,
+    "transformers": ["response-template"],
+    "jsonBody": [
+      {
+        "status": 202,
+        "headers": [
+          {
+            "name": "Operation-Location",
+            "value": "{{request.baseUrl}}/v3.0/xdr/response/tasks/00000002"
+          }
+        ]
+      }
+    ],
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}
