@@ -1,0 +1,20 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/response/tasks/access_denied",
+    "method": "GET"
+  },
+  "response": {
+    "status": 403,
+    "transformers": ["response-template"],
+    "jsonBody": {
+      "error": {
+        "code": "AccessDenied",
+        "message": "Insufficient permissions."
+      }
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

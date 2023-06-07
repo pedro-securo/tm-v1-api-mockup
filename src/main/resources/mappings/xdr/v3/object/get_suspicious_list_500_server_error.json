@@ -1,0 +1,24 @@
+{
+  "request": {
+    "urlPath": "/v3.0/threatintel/suspiciousObjects",
+    "method": "GET",
+    "headers": {
+      "Authorization": {
+        "contains": "SERVER_ERROR"
+      }
+    }
+  },
+  "response": {
+    "status": 500,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "code": "InternalServerError",
+      "message": "Internal server error"
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

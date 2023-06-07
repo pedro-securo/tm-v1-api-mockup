@@ -1,0 +1,32 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/response/suspiciousObjects",
+    "method": "POST",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.url == 'fields_not_found')]"
+      }
+    ]
+  },
+  "response": {
+    "status": 207,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": [
+      {
+        "status": 400,
+        "body": {
+          "error": {
+            "code": "BadRequest",
+            "message": "Invalid request - Required fields not found: %field%."
+          }
+        }
+      }
+    ],
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

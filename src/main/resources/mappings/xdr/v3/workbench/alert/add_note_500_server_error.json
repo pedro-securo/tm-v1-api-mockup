@@ -1,0 +1,29 @@
+{
+  "request": {
+    "urlPathPattern": "/v3.0/workbench/alerts/.*/notes",
+    "method": "POST",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.content == 'server_error')]"
+      }
+    ]
+  },
+  "response": {
+    "status": 500,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": [
+      {
+        "error": {
+          "code": "InternalServerError",
+          "message": "An internal error has occurred. Please try again later. If the issue persists, contact your support provider. (Error code: 3090999)",
+          "number": 3090999
+        }
+      }
+    ],
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

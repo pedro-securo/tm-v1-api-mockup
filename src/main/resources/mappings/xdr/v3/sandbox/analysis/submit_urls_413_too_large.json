@@ -1,0 +1,35 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/sandbox/urls/analyze",
+    "method": "POST",
+    "headers": {
+      "Content-Type": {
+        "contains": "application/json"
+      }
+    },
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": {
+          "expression": "$..url",
+          "contains": "too_large"
+        }
+      }
+    ]
+  },
+  "response": {
+    "status": 413,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "error": {
+        "code": "RequestEntityTooLarge",
+        "message": "URL number exceeds maximum"
+      }
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

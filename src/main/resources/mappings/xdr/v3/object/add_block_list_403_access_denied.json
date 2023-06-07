@@ -1,0 +1,29 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/response/suspiciousObjects",
+    "method": "POST",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.url == 'access_denied')]"
+      }
+    ]
+  },
+  "response": {
+    "status": 403,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": [
+      {
+        "error": {
+          "code": "AccessDenied",
+          "message": "Insufficient permissions."
+        }
+      }
+    ],
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

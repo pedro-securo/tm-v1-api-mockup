@@ -1,0 +1,22 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/sandbox/analysisResults/not_found/report",
+    "method": "GET"
+  },
+  "response": {
+    "status": 404,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "error": {
+        "code": "NotFound",
+        "message": "Not Found"
+      }
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

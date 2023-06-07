@@ -1,0 +1,38 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/response/emails/restore",
+    "method": "POST",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.messageId == 'task_duplication')]"
+      }
+    ]
+  },
+  "response": {
+    "status": 207,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": [
+      {
+        "status": 400,
+        "headers": [
+          {
+            "name": "Operation-Location",
+            "value": "{{request.baseUrl}}/v3.0/xdr/response/tasks/00000003"
+          }
+        ],
+        "body": {
+          "error": {
+            "code": "TaskError",
+            "message": "Task duplication."
+          }
+        }
+      }
+    ],
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

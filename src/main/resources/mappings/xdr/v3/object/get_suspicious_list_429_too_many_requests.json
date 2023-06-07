@@ -1,0 +1,24 @@
+{
+  "request": {
+    "urlPath": "/v3.0/threatintel/suspiciousObjects",
+    "method": "GET",
+    "headers": {
+      "Authorization": {
+        "contains": "TOO_MANY_REQUESTS"
+      }
+    }
+  },
+  "response": {
+    "status": 429,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "code": "TooManyRequests",
+      "message": "Too many requests"
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

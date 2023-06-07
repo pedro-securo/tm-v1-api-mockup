@@ -1,0 +1,30 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/workbench/alerts",
+    "method": "GET",
+    "queryParameters": {
+      "startDateTime": {
+        "matches": "server_error"
+      },
+      "endDateTime": {
+        "matches": ".*"
+      }
+    }
+  },
+  "response": {
+    "status": 500,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "error": {
+        "code": "InternalServerError",
+        "message": "Internal Server Error"
+      }
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

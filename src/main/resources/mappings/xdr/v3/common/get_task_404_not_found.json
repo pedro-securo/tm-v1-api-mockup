@@ -1,0 +1,20 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/response/tasks/not_found",
+    "method": "GET"
+  },
+  "response": {
+    "status": 404,
+    "transformers": ["response-template"],
+    "jsonBody": {
+      "error": {
+        "code": "NotFound",
+        "message": "Not found."
+      }
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

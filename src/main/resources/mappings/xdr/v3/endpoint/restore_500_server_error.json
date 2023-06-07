@@ -1,0 +1,29 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/response/endpoints/restore",
+    "method": "POST",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.endpointName == 'server_error')]"
+      }
+    ]
+  },
+  "response": {
+    "status": 500,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": [
+      {
+        "error": {
+          "code": "InternalServerError",
+          "message": "Internal server error."
+        }
+      }
+    ],
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}
