@@ -14,15 +14,13 @@
     "transformers": [
       "response-template"
     ],
-    "jsonBody": [
-      {
+    "jsonBody": {
         "error": {
           "code": "NotFound",
           "message": "Unable to process the request. Verify that the specified workbench ID exists and that you have permission to access the alert and try again. (Error code: 3090007)",
           "number": 3090007
         }
-      }
-    ],
+      },
     "headers": {
       "Content-Type": "application/json"
     }

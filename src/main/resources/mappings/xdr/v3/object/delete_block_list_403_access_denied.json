@@ -14,14 +14,12 @@
     "transformers": [
       "response-template"
     ],
-    "jsonBody": [
-      {
+    "jsonBody": {
         "error": {
           "code": "AccessDenied",
           "message": "Insufficient permissions."
         }
-      }
-    ],
+      },
     "headers": {
       "Content-Type": "application/json"
     }

@@ -14,14 +14,12 @@
     "transformers": [
       "response-template"
     ],
-    "jsonBody": [
-      {
+    "jsonBody": {
         "error": {
           "code": "BadRequest",
           "message": "Invalid request format."
         }
-      }
-    ],
+      },
     "headers": {
       "Content-Type": "application/json"
     }

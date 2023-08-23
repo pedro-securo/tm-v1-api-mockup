@@ -14,14 +14,12 @@
     "transformers": [
       "response-template"
     ],
-    "jsonBody": [
-      {
+    "jsonBody": {
         "error": {
           "code": "TooManyRequests",
           "message": "Too many requests"
         }
-      }
-    ],
+      },
     "headers": {
       "Content-Type": "application/json"
     }
