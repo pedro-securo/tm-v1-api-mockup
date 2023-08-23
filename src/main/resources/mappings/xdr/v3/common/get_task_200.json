@@ -6,7 +6,9 @@
   },
   "response": {
     "status": 200,
-    "transformers": ["response-template"],
+    "transformers": [
+      "response-template"
+    ],
     "jsonBody": {
       "id": "00000004",
       "status": "succeeded",

@@ -4,7 +4,7 @@
     "urlPath": "/v3.0/workbench/alerts",
     "method": "GET",
     "queryParameters": {
-      "startDateTime":  {
+      "startDateTime": {
         "equalTo": "next_link"
       },
       "endDateTime": {
@@ -14,7 +14,9 @@
   },
   "response": {
     "status": 200,
-    "transformers": ["response-template"],
+    "transformers": [
+      "response-template"
+    ],
     "jsonBody": {
       "totalCount": 10,
       "count": 10,

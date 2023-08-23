@@ -6,7 +6,9 @@
   },
   "response": {
     "status": 500,
-    "transformers": ["response-template"],
+    "transformers": [
+      "response-template"
+    ],
     "jsonBody": {
       "error": {
         "code": "InternalServerError",

@@ -15,11 +15,11 @@
       "response-template"
     ],
     "jsonBody": {
-        "error": {
-          "code": "BadRequest",
-          "message": "Invalid request format."
-        }
-      },
+      "error": {
+        "code": "BadRequest",
+        "message": "Invalid request format."
+      }
+    },
     "headers": {
       "Content-Type": "application/json"
     }

@@ -3,21 +3,25 @@
   "request": {
     "urlPath": "/v3.0/sandbox/files/analyze",
     "method": "POST",
-    "multipartPatterns": [{
-      "matchingType": "ANY",
-      "headers": {
-        "Content-Disposition": {
-          "contains": "tooMany.txt"
-        },
-        "Content-Type": {
-          "contains": "application/octet-stream"
+    "multipartPatterns": [
+      {
+        "matchingType": "ANY",
+        "headers": {
+          "Content-Disposition": {
+            "contains": "tooMany.txt"
+          },
+          "Content-Type": {
+            "contains": "application/octet-stream"
+          }
         }
       }
-    }]
+    ]
   },
   "response": {
     "status": 429,
-    "transformers": ["response-template"],
+    "transformers": [
+      "response-template"
+    ],
     "jsonBody": {
       "error": {
         "code": "TooManyRequests",

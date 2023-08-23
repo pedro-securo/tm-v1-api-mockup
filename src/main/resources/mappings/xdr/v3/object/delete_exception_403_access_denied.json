@@ -15,11 +15,11 @@
       "response-template"
     ],
     "jsonBody": {
-        "error": {
-          "code": "AccessDenied",
-          "message": "Insufficient permissions."
-        }
-      },
+      "error": {
+        "code": "AccessDenied",
+        "message": "Insufficient permissions."
+      }
+    },
     "headers": {
       "Content-Type": "application/json"
     }

@@ -6,7 +6,9 @@
   },
   "response": {
     "status": 200,
-    "transformers": ["response-template"],
+    "transformers": [
+      "response-template"
+    ],
     "jsonBody": {
       "items": [
         {

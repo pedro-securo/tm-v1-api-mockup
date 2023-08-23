@@ -4,9 +4,9 @@
     "urlPathPattern": "/v3.0/workbench/alerts/.*",
     "method": "PATCH",
     "headers": {
-        "If-Match": {
-          "matches": "\"precondition_failed\""
-        }
+      "If-Match": {
+        "matches": "\"precondition_failed\""
+      }
     },
     "bodyPatterns": [
       {

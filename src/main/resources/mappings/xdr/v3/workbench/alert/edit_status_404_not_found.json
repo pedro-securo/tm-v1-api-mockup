@@ -4,9 +4,9 @@
     "urlPathPattern": "/v3.0/workbench/alerts/.*",
     "method": "PATCH",
     "headers": {
-        "If-Match": {
-          "matches": "\"not_found\""
-        }
+      "If-Match": {
+        "matches": "\"not_found\""
+      }
     },
     "bodyPatterns": [
       {

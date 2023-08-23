@@ -15,11 +15,11 @@
       "response-template"
     ],
     "jsonBody": {
-        "error": {
-          "code": "InternalServerError",
-          "message": "Internal server error."
-        }
-      },
+      "error": {
+        "code": "InternalServerError",
+        "message": "Internal server error."
+      }
+    },
     "headers": {
       "Content-Type": "application/json"
     }

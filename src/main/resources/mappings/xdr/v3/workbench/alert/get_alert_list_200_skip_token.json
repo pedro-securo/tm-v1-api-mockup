@@ -4,18 +4,21 @@
     "urlPath": "/v3.0/workbench/alerts",
     "method": "GET",
     "queryParameters": {
-      "skipToken" : {
+      "skipToken": {
         "equalTo": "c2tpcFRva2Vu"
       }
     }
   },
   "response": {
     "status": 200,
-    "transformers": ["response-template"],
+    "transformers": [
+      "response-template"
+    ],
     "jsonBody": {
       "totalCount": 1,
       "count": 1,
-      "items": [{
+      "items": [
+        {
           "schemaVersion": "1.12",
           "id": "WB-9002-20220906-00011",
           "investigationStatus": "New",

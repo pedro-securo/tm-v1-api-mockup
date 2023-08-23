@@ -6,7 +6,9 @@
   },
   "response": {
     "status": 404,
-    "transformers": ["response-template"],
+    "transformers": [
+      "response-template"
+    ],
     "jsonBody": {
       "error": {
         "code": "NotFound",

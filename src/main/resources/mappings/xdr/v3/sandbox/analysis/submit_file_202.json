@@ -3,21 +3,25 @@
   "request": {
     "urlPath": "/v3.0/sandbox/files/analyze",
     "method": "POST",
-    "multipartPatterns": [{
-      "matchingType": "ANY",
-      "headers": {
-        "Content-Disposition": {
-          "contains": "name="
-        },
-        "Content-Type": {
-          "contains": "application/octet-stream"
+    "multipartPatterns": [
+      {
+        "matchingType": "ANY",
+        "headers": {
+          "Content-Disposition": {
+            "contains": "name="
+          },
+          "Content-Type": {
+            "contains": "application/octet-stream"
+          }
         }
       }
-    }]
+    ]
   },
   "response": {
     "status": 202,
-    "transformers": ["response-template"],
+    "transformers": [
+      "response-template"
+    ],
     "jsonBody": {
       "id": "012e4eac-9bd9-4e89-95db-{{randomValue length=12 type='ALPHANUMERIC'}}",
       "digest": {
