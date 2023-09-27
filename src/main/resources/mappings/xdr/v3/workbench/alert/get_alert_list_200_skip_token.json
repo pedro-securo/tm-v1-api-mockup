@@ -1,5 +1,5 @@
 {
-  "priority": 100,
+  "priority": 1,
   "request": {
     "urlPath": "/v3.0/workbench/alerts",
     "method": "GET",
