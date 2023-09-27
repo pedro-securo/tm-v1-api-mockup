@@ -28,7 +28,9 @@
           "msgUuid": "AAMkAGRhODQyZDAzLWNmNjEtNDY2OS1iOWM3LWVmODUxMDk4ZjE1ZgBGAAAAAAABcyFCsOdnTohKgA0TJdjUBwAYbtU+cD0jRZmfu0kuMtvEAAAAAAEMAAAYbtU+cD0jRZmfu0kuMtvEAAF/JGRaAAA=",
           "mailbox": "user2@example2.com",
           "mailSenderIp": "xx.yy.zz.ww",
-          "mailFromAddresses": "[user3@example3.com]",
+          "mailFromAddresses": [
+            "user3@example3.com"
+          ],
           "mailWholeHeader": [
             "Microsoft Azure<azure-noreply@xxxxx.com>"
           ],
