@@ -1,7 +1,7 @@
 {
   "priority": 1,
   "request": {
-    "urlPath": "/v3.0/response/tasks/00000003",
+    "urlPath": "/v3.0/response/tasks/collect_file",
     "method": "GET"
   },
   "response": {

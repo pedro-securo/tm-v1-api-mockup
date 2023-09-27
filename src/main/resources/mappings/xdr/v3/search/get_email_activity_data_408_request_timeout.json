@@ -1,0 +1,27 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/search/emailActivities",
+    "method": "GET",
+    "headers": {
+      "TMV1-Query": {
+        "contains": "request_timeout"
+      }
+    }
+  },
+  "response": {
+    "status": 400,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "error": {
+        "code": "RequestTimeout",
+        "message": "Request Timeout"
+      }
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}
