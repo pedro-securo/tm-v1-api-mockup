@@ -95,7 +95,20 @@ Below is the full list of the currently available parameters to produce the vari
 | sign_out_account                       | 403      | accountName == 'access_denied'                                        |                                 |
 | sign_out_account                       | 500      | accountName == 'server_error'                                         |                                 |
 | get_task_result                        | 200      | task_id == random string                                              | Use client.get_base_task_result |
-| get_task_result                        | 200      | task_id == '00000003'                                                 |                                 |
+| get_task_result                        | 200      | task_id == 'block_suspicious'                                         |                                 |
+| get_task_result                        | 200      | task_id == 'collect_file'                                             |                                 |
+| get_task_result                        | 200      | task_id == 'delete_message'                                           |                                 |
+| get_task_result                        | 200      | task_id == 'disable_account'                                          |                                 |
+| get_task_result                        | 200      | task_id == 'enable_account'                                           |                                 |
+| get_task_result                        | 200      | task_id == 'force_sign_out'                                           |                                 |
+| get_task_result                        | 200      | task_id == 'isolate_endpoint'                                         |                                 |
+| get_task_result                        | 200      | task_id == 'quarantine_message'                                       |                                 |
+| get_task_result                        | 200      | task_id == 'remove_suspicious'                                        |                                 |
+| get_task_result                        | 200      | task_id == 'reset_password'                                           |                                 |
+| get_task_result                        | 200      | task_id == 'reset_endpoint'                                           |                                 |
+| get_task_result                        | 200      | task_id == 'restore_message'                                          |                                 |
+| get_task_result                        | 200      | task_id == 'submit_sandbox'                                           |                                 |
+| get_task_result                        | 200      | task_id == 'terminate_process'                                        |                                 |
 | get_task_result                        | 400      | task_id == 'bad_request'                                              |                                 |
 | get_task_result                        | 403      | task_id == 'access_denied'                                            |                                 |
 | get_task_result                        | 404      | task_id == 'not_found'                                                |                                 |
@@ -294,6 +307,16 @@ Below is the full list of the currently available parameters to produce the vari
 | get_sandbox_suspicious_list            | 200      | submit_id == random string                                            |                                 |
 | get_sandbox_suspicious_list            | 404      | submit_id == 'not_found'                                              |                                 |
 | get_sandbox_suspicious_list            | 500      | submit_id == 'server_error'                                           |                                 |
+| get_email_activity_data                | 200      | endpoint == random string                                             |                                 |
+| get_email_activity_data                | 400      | endpoint == 'bad_request'                                             |                                 |
+| get_email_activity_data                | 408      | endpoint == 'request_timeout'                                         |                                 |
+| get_email_activity_data                | 500      | endpoint == 'server_error'                                            |                                 |
+| get_endpoint_activity_data             | 200      | endpoint == random string                                             |                                 |
+| get_endpoint_activity_data             | 400      | endpoint == 'bad_request'                                             |                                 |
+| get_endpoint_activity_data             | 408      | endpoint == 'request_timeout'                                         |                                 |
+| get_endpoint_activity_data             | 500      | endpoint == 'server_error'                                            |                                 |
+| get_endpoint_data                      | 400      | endpoint == 'bad_request'                                             |                                 |
+| get_endpoint_data                      | 500      | endpoint == 'server_error'                                            |                                 | 
 | get_endpoint_data                      | 200      | endpoint == random string                                             |                                 |
 | get_endpoint_data                      | 400      | endpoint == 'bad_request'                                             |                                 |
 | get_endpoint_data                      | 500      | endpoint == 'server_error'                                            |                                 | 
