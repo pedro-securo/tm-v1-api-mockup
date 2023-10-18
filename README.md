@@ -22,7 +22,7 @@ If you want to actively help Trend Vision One by creating connectors, we created
 
 ### Status & bugs
 
-Currently Trend Vision One GitHub is under heavy development. If you wish to report bugs or request new features, you can use the [Github issues module](https://github.com/trendmicro/tm-v1/tm-v1-api=mockup/issues).
+Currently Trend Vision One GitHub is under heavy development. If you wish to report bugs or request new features, you can use the [Github issues module](https://github.com/trendmicro/tm-v1-api-mockup/issues).
 
 ### Discussion
 
