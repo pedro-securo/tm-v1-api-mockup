@@ -1,0 +1,36 @@
+{
+  "request": {
+    "urlPathPattern": "/v3.0/response/endpoints/runScript",
+    "method": "POST",
+    "headers": {
+      "Content-Type": {
+        "contains": "application/json"
+      }
+    },
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.agentGuid || @.endpointName)]"
+      }
+    ]
+  },
+  "response": {
+    "status": 202,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": [
+      {
+        "status": 202,
+        "headers": [
+          {
+            "name": "Operation-Location",
+            "value": "https://api.xdr.trendmicro.com/v3.0/xdr/response/tasks/00000001"
+          }
+        ]
+      }
+    ],
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}
