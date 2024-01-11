@@ -1,6 +1,6 @@
 {
   "request": {
-    "urlPathPattern": "/v3.0/response/endpoints/runScript",
+    "urlPath": "/v3.0/response/endpoints/runScript",
     "method": "POST",
     "headers": {
       "Content-Type": {
@@ -10,6 +10,9 @@
     "bodyPatterns": [
       {
         "matchesJsonPath": "$[?(@.agentGuid || @.endpointName)]"
+      },
+      {
+        "matchesJsonPath": "$[?(@.fileName)]"
       }
     ]
   },

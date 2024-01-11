@@ -1,0 +1,30 @@
+{
+  "request": {
+    "urlPath": "/v3.0/response/customScripts",
+    "method": "GET",
+    "queryParameters": {
+      "filter": {
+        "matches": ".*"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "items": [
+        {
+          "id": "44c99cb0-8c5f-4182-af55-62135dbe32f1",
+          "fileName": "random_script.ps1",
+          "fileType": "powershell",
+          "description": "string"
+        }
+      ]
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "request": {
+    "urlPathPattern": "/v3.0/response/customScripts/.*",
+    "method": "DELETE"
+  },
+  "response": {
+    "status": 204
+  }
+}

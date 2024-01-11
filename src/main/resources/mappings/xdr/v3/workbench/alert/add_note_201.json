@@ -15,7 +15,7 @@
       "response-template"
     ],
     "headers": {
-      "Location": "{{request.baseUrl}}/v3/workbench/alerts/{{request.pathSegments.[3]}}/notes/1"
+      "Location": "{{request.baseUrl}}/v3.0/workbench/alerts/{{request.pathSegments.[3]}}/notes/1"
     }
   }
 }
