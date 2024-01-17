@@ -1,0 +1,39 @@
+{
+  "request": {
+    "urlPath": "/v3.0/iam/apiKeys",
+    "method": "POST",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.name)]"
+      },
+      {
+        "matchesJsonPath": "$[?(@.role)]"
+      }
+    ]
+  },
+  "response": {
+    "status": 207,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": [
+      {
+        "status": 201,
+        "headers": [
+          {
+            "name": "Location",
+            "value": "{{request.baseUrl}}/v3.0/iam/apiKeys/d367abdd-7739-4129-a36a-862c4ec018b4"
+          }
+        ],
+        "body": {
+          "id": "d367abdd-7739-4129-a36a-862c4ec018b4",
+          "value": "string",
+          "expiredDateTime": "2025-02-06T10:00:00Z"
+        }
+      }
+    ],
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

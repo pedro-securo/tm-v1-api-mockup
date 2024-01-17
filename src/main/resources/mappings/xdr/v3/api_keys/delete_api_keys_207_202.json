@@ -1,0 +1,25 @@
+{
+  "request": {
+    "urlPath": "/v3.0/iam/apiKeys/delete",
+    "method": "POST",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.id)]"
+      }
+    ]
+  },
+  "response": {
+    "status": 207,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": [
+      {
+        "status": 204
+      }
+    ],
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}
