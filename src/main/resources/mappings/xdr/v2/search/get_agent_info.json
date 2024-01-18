@@ -1,0 +1,37 @@
+{
+  "request": {
+    "urlPath": "/v2.0/xdr/eiqs/query/agentInfo",
+    "method": "POST",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$.criteria"
+      },
+      {
+        "matchesJsonPath": "$.criteria.field"
+      },
+      {
+        "matchesJsonPath": "$.criteria.value"
+      }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "status": "string",
+      "errorCode": 0,
+      "message": "string",
+      "result": {
+        "computerId": "string",
+        "logonAccount": {
+          "value": [
+            "string"
+          ],
+          "updateAt": 0
+        }
+      }
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

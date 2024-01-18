@@ -1,0 +1,24 @@
+{
+  "request": {
+    "urlPath": "/v3.0/threatintel/suspiciousObjectExceptions",
+    "method": "GET",
+    "headers": {
+      "Authorization": {
+        "contains": "ACCESS_DENIED"
+      }
+    }
+  },
+  "response": {
+    "status": 403,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "code": "AccessDenied",
+      "message": "Access denied"
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

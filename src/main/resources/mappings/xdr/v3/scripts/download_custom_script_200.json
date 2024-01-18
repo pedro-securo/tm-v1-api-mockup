@@ -1,0 +1,13 @@
+{
+  "request": {
+    "urlPathPattern": "/v3.0/response/customScripts/.*",
+    "method": "GET"
+  },
+  "response": {
+    "status": 200,
+    "body": "#!/bin/sh Download Script",
+    "headers": {
+      "Content-Type": "text/plain"
+    }
+  }
+}

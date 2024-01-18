@@ -1,0 +1,41 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/response/tasks/restore_message",
+    "method": "GET"
+  },
+  "response": {
+    "status": 200,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "id": "00000012",
+      "status": "running",
+      "createdDateTime": "2021-04-05T08:22:37Z",
+      "lastActionDateTime": "2021-04-06T08:22:37Z",
+      "description": "task description",
+      "action": "restoreMessage",
+      "account": "test",
+      "tasks": [
+        {
+          "status": "running",
+          "lastActionDateTime": "2021-04-06T08:22:37Z",
+          "error": {
+            "code": "TaskError",
+            "number": 4009999,
+            "message": "An internal error has occurred."
+          },
+          "messageId": "<HK0PR06MB28364369C4D9F8255DBB229081410@HK0PR77MB2836.apcprd06.prod.example1.com>",
+          "mailBox": "user@example.com",
+          "messageSubject": "my test mail",
+          "uniqueId": "AAMkAGRhODQyZDAzLWNmNjEtNDY7OS1iOWM3LWVmODUxMDk4ZjE1ZgBGAAAAAAABcyFCsOdnTohKgA0TJdjUBwAYbtU+cD0jRZmfu0kuMtvEAAAAAAEMAAAYbtU+cD0jRZmfu0kuMtvEAAF/JGRaAAA=",
+          "organizationId": "25f970f0-2b86-4b59-b65f-dda762d45c0d"
+        }
+      ]
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

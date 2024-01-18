@@ -1,0 +1,32 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/threatintel/suspiciousObjects",
+    "method": "POST",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.url == 'bad_request')]"
+      }
+    ]
+  },
+  "response": {
+    "status": 207,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": [
+      {
+        "status": 400,
+        "body": {
+          "error": {
+            "code": "BadRequest",
+            "message": "Bad request"
+          }
+        }
+      }
+    ],
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

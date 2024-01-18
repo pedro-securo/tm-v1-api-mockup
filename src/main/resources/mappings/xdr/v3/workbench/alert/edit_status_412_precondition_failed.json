@@ -1,0 +1,30 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPathPattern": "/v3.0/workbench/alerts/.*",
+    "method": "PATCH",
+    "headers": {
+      "If-Match": {
+        "matches": "\"precondition_failed\""
+      }
+    },
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$.investigationStatus"
+      }
+    ]
+  },
+  "response": {
+    "status": 412,
+    "jsonBody": {
+      "error": {
+        "code": "ConditionNotMet",
+        "message": "The target resource is not updated because of ETag unmatching. (Error code: 3090018)",
+        "number": 3090018
+      }
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPathPattern": "/v3.0/sandbox/analysisResults/.*/suspiciousObjects",
+    "method": "GET"
+  },
+  "response": {
+    "status": 200,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "items": [
+        {
+          "riskLevel": "high",
+          "analysisCompletionDateTime": "{{now offset='-10 seconds'}}",
+          "expiredDateTime": "{{now offset='1 days'}}",
+          "rootSha1": "fb5608fa03de204a12fe1e9e5275e4a682107471",
+          "ip": "6.6.6.6"
+        }
+      ]
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

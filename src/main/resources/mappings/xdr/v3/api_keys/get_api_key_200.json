@@ -1,0 +1,25 @@
+{
+  "request": {
+    "urlPathPattern": "/v3.0/iam/apiKeys/.*",
+    "method": "GET"
+  },
+  "response": {
+    "status": 200,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "id": "d367abdd-7739-4129-a36a-862c4ec018b4",
+      "name": "test",
+      "status": "enabled",
+      "role": "Master Administrator",
+      "description": "this is a test apikey",
+      "lastUsedDateTime": "2023-02-06T10:00:00Z",
+      "expiredDateTime": "2025-02-06T10:00:00Z"
+    },
+    "headers": {
+      "Content-Type": "application/json",
+      "ETag": "d41d8cd98f00b204e9800998ecf8427e"
+    }
+  }
+}

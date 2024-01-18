@@ -1,0 +1,35 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/sandbox/files/analyze",
+    "method": "POST",
+    "multipartPatterns": [
+      {
+        "matchingType": "ANY",
+        "headers": {
+          "Content-Disposition": {
+            "contains": "badRequest.txt"
+          },
+          "Content-Type": {
+            "contains": "application/octet-stream"
+          }
+        }
+      }
+    ]
+  },
+  "response": {
+    "status": 400,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "error": {
+        "code": "BadRequest",
+        "message": "Request invalid"
+      }
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

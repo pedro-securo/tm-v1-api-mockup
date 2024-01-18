@@ -1,0 +1,35 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/sandbox/files/analyze",
+    "method": "POST",
+    "multipartPatterns": [
+      {
+        "matchingType": "ANY",
+        "headers": {
+          "Content-Disposition": {
+            "contains": "serverError.txt"
+          },
+          "Content-Type": {
+            "contains": "application/octet-stream"
+          }
+        }
+      }
+    ]
+  },
+  "response": {
+    "status": 500,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "error": {
+        "code": "InternalServerError",
+        "message": "Internal Server Error"
+      }
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "request": {
+    "urlPath": "/v3.0/response/customScripts",
+    "method": "POST",
+    "multipartPatterns": [
+      {
+        "matchingType": "ANY",
+        "headers": {
+          "Content-Disposition": {
+            "contains": "add_script.sh"
+          },
+          "Content-Type": {
+            "contains": "text/plain"
+          }
+        }
+      }
+    ]
+  },
+  "response": {
+    "status": 201,
+    "headers": {
+      "Location": "{{request.baseUrl}}/v3.0/response/customScripts/1"
+    }
+  }
+}

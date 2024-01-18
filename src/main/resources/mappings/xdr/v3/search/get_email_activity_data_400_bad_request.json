@@ -1,0 +1,27 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/search/emailActivities",
+    "method": "GET",
+    "headers": {
+      "TMV1-Query": {
+        "contains": "bad_request"
+      }
+    }
+  },
+  "response": {
+    "status": 400,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "error": {
+        "code": "BadRequest",
+        "message": "Invalid HTTP Request"
+      }
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

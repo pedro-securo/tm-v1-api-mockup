@@ -1,0 +1,18 @@
+{
+  "request": {
+    "urlPath": "/v2.0/xdr/response/getTask",
+    "method": "GET",
+    "queryParameters": {
+      "actionId": {
+        "matches": ".*"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": { "data": { "createdTime": 1589525651, "executedTime": 1589525725, "finishedTime": 1589525725, "taskStatus": "timeout", "error": {} } },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

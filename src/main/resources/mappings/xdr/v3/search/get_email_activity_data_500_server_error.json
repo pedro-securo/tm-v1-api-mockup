@@ -1,0 +1,27 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/search/emailActivities",
+    "method": "GET",
+    "headers": {
+      "TMV1-Query": {
+        "contains": "server_error"
+      }
+    }
+  },
+  "response": {
+    "status": 500,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "error": {
+        "code": "InternalServerError",
+        "message": "content returned by service"
+      }
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

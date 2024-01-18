@@ -1,0 +1,24 @@
+{
+  "request": {
+    "urlPath": "/v2.0/xdr/threatintel/suspiciousObjects",
+    "method": "POST",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$.data"
+      },
+      {
+        "matchesJsonPath": "$.data.type"
+      },
+      {
+        "matchesJsonPath": "$.data.value"
+      }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": { "data": { } },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

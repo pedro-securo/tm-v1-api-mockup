@@ -1,0 +1,28 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPathPattern": "/v3.0/workbench/alerts/.*/notes",
+    "method": "POST",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.content == 'bad_request')]"
+      }
+    ]
+  },
+  "response": {
+    "status": 400,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "error": {
+        "code": "BadRequest",
+        "message": "Unable to process the request. Verify that the request is properly formatted and try again. (Error code: 3090003)",
+        "number": 3090003
+      }
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

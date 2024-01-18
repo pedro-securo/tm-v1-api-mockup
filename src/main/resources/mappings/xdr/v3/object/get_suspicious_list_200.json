@@ -1,0 +1,29 @@
+{
+  "request": {
+    "urlPath": "/v3.0/threatintel/suspiciousObjects",
+    "method": "GET"
+  },
+  "response": {
+    "status": 200,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "items": [
+        {
+          "fileSha256": "asidj123123jsdsidjsid123sidsidj123sss123s224212312312312312sdaas",
+          "type": "fileSha256",
+          "description": "object description",
+          "scanAction": "log",
+          "riskLevel": "high",
+          "inExceptionList": false,
+          "lastModifiedDateTime": "{{now offset='-1 days'}}",
+          "expiredDateTime": "{{now offset='-1 days'}}"
+        }
+      ]
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

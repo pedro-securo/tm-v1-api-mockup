@@ -1,0 +1,31 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/healthcheck/connectivity",
+    "method": "GET",
+    "headers": {
+      "Authorization": {
+        "contains": "SERVER_ERROR"
+      }
+    }
+  },
+  "response": {
+    "status": 500,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "error": {
+        "code": "InternalServerError",
+        "message": "Internal error",
+        "innererror": {
+          "code": "InternalServerError",
+          "service": "svp"
+        }
+      }
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

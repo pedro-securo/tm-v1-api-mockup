@@ -1,0 +1,21 @@
+{
+  "request": {
+    "urlPath": "/v2.0/xdr/response/restoreIsolate",
+    "method": "POST",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$.computerId"
+      },
+      {
+        "matchesJsonPath": "$.productId"
+      }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": { "actionId": 88139521, "taskStatus": "pending" },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

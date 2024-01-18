@@ -1,0 +1,25 @@
+{
+  "request": {
+    "urlPath": "/v2.0/xdr/threatintel/suspiciousObjects/exceptions",
+    "method": "GET"
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "data": {
+        "nextLink": "https://api.xdr.trendmicro.com/v2.0/xdr/threatintel/suspiciousObjects/exceptions?limit=20&skipToken=eyJpZCI6IjI1MGQxMmE3ZDQyMmVhM",
+        "exceptionList": [
+          {
+            "type": "domain",
+            "value": "1.alisiosanguera.com.cn",
+            "description": "Example object.",
+            "lastModified": "2021-03-22T03:08:40Z"
+          }
+        ]
+      }
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

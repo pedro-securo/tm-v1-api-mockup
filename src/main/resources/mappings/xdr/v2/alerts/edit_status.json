@@ -1,0 +1,25 @@
+{
+  "priority": 99,
+  "request": {
+    "urlPathPattern": "/v2.0/xdr/workbench/workbenches/(.*)",
+    "method": "PUT",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$.investigationStatus"
+      }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "info": {
+        "code": 3006000,
+        "msg": "Alert status changed successfully."
+      },
+      "data": null
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

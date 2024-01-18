@@ -1,0 +1,27 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/threatintel/suspiciousObjectExceptions",
+    "method": "POST",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.url == 'too_many_requests')]"
+      }
+    ]
+  },
+  "response": {
+    "status": 429,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "error": {
+        "code": "TooManyRequests",
+        "message": "Too many requests"
+      }
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

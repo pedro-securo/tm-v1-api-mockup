@@ -1,0 +1,22 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/workbench/alerts/server_error",
+    "method": "GET"
+  },
+  "response": {
+    "status": 500,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "error": {
+        "code": "InternalServerError",
+        "message": "Internal Server Error"
+      }
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/response/domainAccounts/signOut",
+    "method": "POST",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.accountName == 'access_denied')]"
+      }
+    ]
+  },
+  "response": {
+    "status": 403,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "error": {
+        "code": "AccessDenied",
+        "message": "Insufficient permissions."
+      }
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

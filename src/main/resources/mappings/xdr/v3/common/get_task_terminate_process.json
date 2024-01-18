@@ -1,0 +1,34 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/response/tasks/terminate_process",
+    "method": "GET"
+  },
+  "response": {
+    "status": 200,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "id": "00000012",
+      "status": "running",
+      "createdDateTime": "2021-04-05T08:22:37Z",
+      "lastActionDateTime": "2021-04-06T08:22:37Z",
+      "error": {
+        "code": "TaskError",
+        "number": 4009999,
+        "message": "An internal error has occurred."
+      },
+      "description": "task description",
+      "action": "teminateProcess",
+      "account": "test",
+      "agentGuid": "cb9c8412-1f64-4fa0-a36b-76bf41a07ede",
+      "endpointName": "trend-host-1",
+      "fileSha1": "string",
+      "fileName": "string"
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

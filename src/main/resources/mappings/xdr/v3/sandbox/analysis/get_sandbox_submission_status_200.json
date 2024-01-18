@@ -1,0 +1,35 @@
+{
+  "priority": 99,
+  "request": {
+    "urlPathPattern": "/v3.0/sandbox/tasks/.*",
+    "method": "GET"
+  },
+  "response": {
+    "status": 200,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "id": "{{request.pathSegments.[3]}}",
+      "action": "analyzeFile",
+      "status": "succeeded",
+      "error": {
+        "code": "",
+        "message": ""
+      },
+      "createdDateTime": "{{now offset='-1 minutes'}}",
+      "lastActionDateTime": "{{now offset='-1 minutes'}}",
+      "resourceLocation": "{{request.baseUrl}}/v3.0/sandbox/analysisResults/{{request.pathSegments.[3]}}",
+      "isCached": true,
+      "digest": {
+        "md5": "4ac174730d4143a119037d9fda81c7a9",
+        "sha1": "fb5608fa03de204a12fe1e9e5275e4a682107471",
+        "sha256": "65b0f656e79ab84ca17807158e3eac206bd58be6689ddeb95956a48748d138f9"
+      },
+      "arguments": "LS10ZXN0IA=="
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

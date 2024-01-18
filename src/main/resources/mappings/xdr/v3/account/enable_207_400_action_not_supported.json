@@ -1,0 +1,32 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/response/domainAccounts/enable",
+    "method": "POST",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.accountName == 'action_not_supported')]"
+      }
+    ]
+  },
+  "response": {
+    "status": 207,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": [
+      {
+        "status": 400,
+        "body": {
+          "error": {
+            "code": "NotSupported",
+            "message": "Action not supported. Install or upgrade the agent program on the target endpoint."
+          }
+        }
+      }
+    ],
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "request": {
+    "urlPathPattern": "/v3.0/response/customScripts/.*/update",
+    "method": "POST",
+        "multipartPatterns": [
+      {
+        "matchingType": "ANY",
+        "headers": {
+          "Content-Disposition": {
+            "contains": "update_script.sh"
+          },
+          "Content-Type": {
+            "contains": "text/plain"
+          }
+        }
+      }
+    ]
+  },
+  "response": {
+    "status": 204
+  }
+}

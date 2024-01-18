@@ -1,0 +1,14 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPathPattern": "/v3.0/sandbox/analysisResults/.*/investigationPackage",
+    "method": "GET"
+  },
+  "response": {
+    "status": 200,
+    "base64Body": "UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA==",
+    "headers": {
+      "Content-Type": "application/zip"
+    }
+  }
+}

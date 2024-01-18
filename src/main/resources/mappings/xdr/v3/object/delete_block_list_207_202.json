@@ -1,0 +1,32 @@
+{
+  "priority": 9,
+  "request": {
+    "urlPath": "/v3.0/response/suspiciousObjects/delete",
+    "method": "POST",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.url || @.domain || @.fileSha1 || @.senderMailAddress || @.ip)]"
+      }
+    ]
+  },
+  "response": {
+    "status": 207,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": [
+      {
+        "status": 202,
+        "headers": [
+          {
+            "name": "Operation-Location",
+            "value": "{{request.baseUrl}}/v3.0/xdr/response/tasks/00000008"
+          }
+        ]
+      }
+    ],
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

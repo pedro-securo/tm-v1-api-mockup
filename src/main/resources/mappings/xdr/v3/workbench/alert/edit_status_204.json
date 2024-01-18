@@ -1,0 +1,20 @@
+{
+  "priority": 99,
+  "request": {
+    "urlPathPattern": "/v3.0/workbench/alerts/.*",
+    "method": "PATCH",
+    "headers": {
+      "If-Match": {
+        "matches": ".+"
+      }
+    },
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$.investigationStatus"
+      }
+    ]
+  },
+  "response": {
+    "status": 204
+  }
+}

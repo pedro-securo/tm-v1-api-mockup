@@ -1,0 +1,35 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/sandbox/urls/analyze",
+    "method": "POST",
+    "headers": {
+      "Content-Type": {
+        "contains": "application/json"
+      }
+    },
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": {
+          "expression": "$..url",
+          "contains": "invalid_request"
+        }
+      }
+    ]
+  },
+  "response": {
+    "status": 400,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "error": {
+        "code": "BadRequest",
+        "message": "Request invalid"
+      }
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

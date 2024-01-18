@@ -1,0 +1,27 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPathPattern": "/v2.0/xdr/workbench/workbenches/(.*)/notes",
+    "method": "POST",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$.content"
+      }
+    ]
+  },
+  "response": {
+    "status": 500,
+    "jsonBody": {
+      "info": {
+        "code": 3021000,
+        "msg": "Alert notes added successfully."
+      },
+      "data": {
+        "id": 123
+      }
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

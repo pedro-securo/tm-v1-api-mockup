@@ -1,0 +1,25 @@
+{
+  "request": {
+    "urlPathPattern": "/v2.0/xdr/response/downloadInfo",
+    "method": "GET",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$.actionId"
+      }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "data": {
+        "url": "string",
+        "expires": "2011-10-05T14:48:00.000Z",
+        "password": "string",
+        "filename": "string"
+      }
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

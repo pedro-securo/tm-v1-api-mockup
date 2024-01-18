@@ -1,0 +1,14 @@
+{
+  "request": {
+    "urlPathPattern": "/v3.0/iam/apiKeys/.*",
+    "method": "PATCH",
+    "headers": {
+      "If-Match": {
+        "matches": ".+"
+      }
+    }
+  },
+  "response": {
+    "status": 204
+  }
+}

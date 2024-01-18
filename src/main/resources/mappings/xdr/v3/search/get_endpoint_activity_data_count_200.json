@@ -1,0 +1,29 @@
+{
+  "priority": 99,
+  "request": {
+    "urlPath": "/v3.0/search/endpointActivities",
+    "method": "GET",
+    "headers": {
+      "TMV1-Query": {
+        "matches": ".+"
+      }
+    },
+    "queryParameters": {
+      "mode": {
+        "equalTo": "countOnly"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "totalCount": 2496
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

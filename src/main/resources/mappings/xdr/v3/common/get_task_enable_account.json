@@ -1,0 +1,38 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/response/tasks/enable_account",
+    "method": "GET"
+  },
+  "response": {
+    "status": 200,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "id": "00000012",
+      "status": "running",
+      "createdDateTime": "2021-04-05T08:22:37Z",
+      "lastActionDateTime": "2021-04-06T08:22:37Z",
+      "description": "task description",
+      "action": "enableAccount",
+      "account": "test",
+      "tasks": [
+        {
+          "iam": "AAD",
+          "accountName": "ghost@trendmicro.com",
+          "status": "running",
+          "lastActionDateTime": "2021-04-06T08:22:37Z",
+          "error": {
+            "code": "TaskError",
+            "number": 4009999,
+            "message": "An internal error has occurred."
+          }
+        }
+      ]
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

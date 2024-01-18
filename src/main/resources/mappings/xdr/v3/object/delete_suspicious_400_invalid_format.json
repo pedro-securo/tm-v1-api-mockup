@@ -1,0 +1,27 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/threatintel/suspiciousObjects/delete",
+    "method": "POST",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.url == 'invalid_format')]"
+      }
+    ]
+  },
+  "response": {
+    "status": 400,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "error": {
+        "code": "BadRequest",
+        "message": "Invalid request format."
+      }
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

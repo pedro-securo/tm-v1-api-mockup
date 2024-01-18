@@ -1,0 +1,27 @@
+{
+  "priority": 1,
+  "request": {
+    "urlPath": "/v3.0/eiqs/endpoints",
+    "method": "GET",
+    "headers": {
+      "TMV1-Query": {
+        "contains": "bad_request"
+      }
+    }
+  },
+  "response": {
+    "status": 400,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "error": {
+        "code": "BadRequest",
+        "message": "Invalid query endpoint info request"
+      }
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

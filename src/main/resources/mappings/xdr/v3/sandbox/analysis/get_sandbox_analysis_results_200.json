@@ -1,0 +1,35 @@
+{
+  "priority": 99,
+  "request": {
+    "urlPathPattern": "/v3.0/sandbox/analysisResults/.*",
+    "method": "GET"
+  },
+  "response": {
+    "status": 200,
+    "transformers": [
+      "response-template"
+    ],
+    "jsonBody": {
+      "id": "{{request.pathSegments.[3]}}",
+      "type": "file",
+      "digest": {
+        "md5": "4ac174730d4143a119037d9fda81c7a9",
+        "sha1": "fb5608fa03de204a12fe1e9e5275e4a682107471",
+        "sha256": "65b0f656e79ab84ca17807158e3eac206bd58be6689ddeb95956a48748d138f9"
+      },
+      "arguments": "LS10ZXN0IA==",
+      "analysisCompletionDateTime": "{{now offset='-10 seconds'}}",
+      "riskLevel": "high",
+      "detectionNames": [
+        "VAN_DROPPER.UMXX"
+      ],
+      "threatTypes": [
+        "Dropper"
+      ],
+      "trueFileType": "exe"
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}
