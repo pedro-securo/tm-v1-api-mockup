@@ -318,6 +318,7 @@ Below is the full list of the currently available parameters to produce the vari
 | get_endpoint_data                      | 400      | endpoint == 'bad_request'                                             |                                 |
 | get_endpoint_data                      | 500      | endpoint == 'server_error'                                            |                                 | 
 | get_endpoint_data                      | 200      | endpoint == random string                                             |                                 |
+| get_endpoint_data                      | 200      | endpoint == 'missing_prodcode'                                        |                                 |
 | get_endpoint_data                      | 400      | endpoint == 'bad_request'                                             |                                 |
 | get_endpoint_data                      | 500      | endpoint == 'server_error'                                            |                                 | 
 | add_alert_note                         | 201      | content == random string                                              |                                 |
@@ -336,6 +337,11 @@ Below is the full list of the currently available parameters to produce the vari
 | get_alert_list                         | 200      | skip_token == 'c2tpcFRva2Vu'                                          |                                 |
 | get_alert_list                         | 400      | start_date_time == 'bad_request'                                      |                                 |
 | get_alert_list                         | 500      | start_date_time == 'server_error'                                     |                                 |
+| get_oat_list                           | 200      | detected_start_date_time == random string                             |                                 |
+| get_oat_list                           | 200      | detected_start_date_time == 'next_link'                               |                                 |
+| get_oat_list                           | 200      | skip_token == 'c2tpcFRva2Vu'                                          |                                 |
+| get_oat_list                           | 400      | detected_start_date_time == 'bad_request'                             |                                 |
+| get_oat_list                           | 500      | detected_start_date_time == 'server_error'                            |                                 |
 
 ## Contributing
 
