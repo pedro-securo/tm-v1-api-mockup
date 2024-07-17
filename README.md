@@ -319,8 +319,6 @@ Below is the full list of the currently available parameters to produce the vari
 | get_endpoint_data                      | 500      | endpoint == 'server_error'                                            |                                 | 
 | get_endpoint_data                      | 200      | endpoint == random string                                             |                                 |
 | get_endpoint_data                      | 200      | endpoint == 'missing_prodcode'                                        |                                 |
-| get_endpoint_data                      | 400      | endpoint == 'bad_request'                                             |                                 |
-| get_endpoint_data                      | 500      | endpoint == 'server_error'                                            |                                 | 
 | add_alert_note                         | 201      | content == random string                                              |                                 |
 | add_alert_note                         | 400      | content == 'bad_request'                                              |                                 |
 | add_alert_note                         | 404      | content == 'not_found'                                                |                                 |
@@ -342,37 +340,60 @@ Below is the full list of the currently available parameters to produce the vari
 | get_oat_list                           | 200      | skip_token == 'c2tpcFRva2Vu'                                          |                                 |
 | get_oat_list                           | 400      | detected_start_date_time == 'bad_request'                             |                                 |
 | get_oat_list                           | 500      | detected_start_date_time == 'server_error'                            |                                 |
+| add_attachment                         | 400      | API_KEY == 'BAD_REQUEST'                                              |                                 |
+| add_attachment                         | 403      | API_KEY == 'ACCESS_DENIED'                                            |                                 |
+| add_attachment                         | 404      | API_KEY == 'NOT_FOUND'                                                |                                 |
+| add_attachment                         | 500      | API_KEY == 'SERVER_ERROR'                                             |                                 |
+| add_content_to_case                    | 400      | API_KEY == 'BAD_REQUEST'                                              |                                 |
+| add_content_to_case                    | 403      | API_KEY == 'ACCESS_DENIED'                                            |                                 |
+| add_content_to_case                    | 404      | API_KEY == 'NOT_FOUND'                                                |                                 |
+| add_content_to_case                    | 500      | API_KEY == 'SERVER_ERROR'                                             |                                 |
+| create_case                            | 400      | API_KEY == 'BAD_REQUEST'                                              |                                 |
+| create_case                            | 403      | API_KEY == 'ACCESS_DENIED'                                            |                                 |
+| create_case                            | 500      | API_KEY == 'SERVER_ERROR'                                             |                                 |
+| delete_attachment                      | 403      | API_KEY == 'ACCESS_DENIED'                                            |                                 |
+| delete_attachment                      | 404      | API_KEY == 'NOT_FOUND'                                                |                                 |
+| delete_attachment                      | 500      | API_KEY == 'SERVER_ERROR'                                             |                                 |
+| delete_case_by_content_id              | 403      | API_KEY == 'ACCESS_DENIED'                                            |                                 |
+| delete_case_by_content_id              | 404      | API_KEY == 'NOT_FOUND'                                                |                                 |
+| delete_case_by_content_id              | 500      | API_KEY == 'SERVER_ERROR'                                             |                                 |
+| download_attachment_by_id              | 403      | API_KEY == 'ACCESS_DENIED'                                            |                                 |
+| download_attachment_by_id              | 404      | API_KEY == 'NOT_FOUND'                                                |                                 |
+| download_attachment_by_id              | 500      | API_KEY == 'SERVER_ERROR'                                             |                                 |
+| get_case_content_by_content_id         | 200      | None                                                                  |                                 |
+| get_case_content_by_content_id         | 403      | API_KEY == 'ACCESS_DENIED'                                            |                                 |
+| get_case_content_by_content_id         | 404      | API_KEY == 'NOT_FOUND'                                                |                                 |
+| get_case_content_by_content_id         | 500      | API_KEY == 'SERVER_ERROR'                                             |                                 |
+| get_case_contents_by_case_id           | 200      | None                                                                  |                                 |
+| get_case_contents_by_case_id           | 400      | API_KEY == 'BAD_REQUEST'                                              |                                 |
+| get_case_contents_by_case_id           | 403      | API_KEY == 'ACCESS_DENIED'                                            |                                 |
+| get_case_contents_by_case_id           | 404      | API_KEY == 'NOT_FOUND'                                                |                                 |
+| get_case_contents_by_case_id           | 500      | API_KEY == 'SERVER_ERROR'                                             |                                 |
+| get_case_details_by_id                 | 200      | None                                                                  |                                 |
+| get_case_details_by_id                 | 403      | API_KEY == 'ACCESS_DENIED'                                            |                                 |
+| get_case_details_by_id                 | 404      | API_KEY == 'NOT_FOUND'                                                |                                 |
+| get_case_details_by_id                 | 500      | API_KEY == 'SERVER_ERROR'                                             |                                 |
+| get_cases                              | 200      | None                                                                  |                                 |
+| get_cases                              | 400      | API_KEY == 'BAD_REQUEST'                                              |                                 |
+| get_cases                              | 403      | API_KEY == 'ACCESS_DENIED'                                            |                                 |
+| get_cases                              | 500      | API_KEY == 'SERVER_ERROR'                                             |                                 |
+| update_case                            | 400      | API_KEY == 'BAD_REQUEST'                                              |                                 |
+| update_case                            | 403      | API_KEY == 'ACCESS_DENIED'                                            |                                 |
+| update_case                            | 404      | API_KEY == 'NOT_FOUND'                                                |                                 |
+| update_case                            | 412      | API_KEY == 'CONDITION_NOT_MET'                                        |                                 |
+| update_case                            | 500      | API_KEY == 'SERVER_ERROR'                                             |                                 |
+| update_case_content                    | 400      | API_KEY == 'BAD_REQUEST'                                              |                                 |
+| update_case_content                    | 403      | API_KEY == 'ACCESS_DENIED'                                            |                                 |
+| update_case_content                    | 404      | API_KEY == 'NOT_FOUND'                                                |                                 |
+| update_case_content                    | 412      | API_KEY == 'CONDITION_NOT_MET'                                        |                                 |
+| update_case_content                    | 500      | API_KEY == 'SERVER_ERROR'                                             |                                 |
+
+
 
 ## Contributing
 
-### Code of Conduct
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-Trend Micro has adopted a [Code of Conduct](https://github.com/trendmicro/tm-v1/blob/main/CODE_OF_CONDUCT.md) that we expect project participants to adhere to. Please read the [full text](https://github.com/trendmicro/tm-v1/blob/main/CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.
+## License
 
-Read our [contributing guide](https://github.com/trendmicro/tm-v1/blob/main/CONTRIBUTING.md) to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to Trend Vision One.
-
-### Development
-
-If you want to actively help Trend Vision One by creating connectors, we created [dedicated documentation](https://docs.trendmicro.com/en-us/enterprise/trend-micro-xdr-help/Home) about the deployment of a development environment and how to start.
-
-## Community
-
-### Status & bugs
-
-Currently Trend Vision One GitHub is under heavy development. If you wish to report bugs or request new features, you can use the [Github issues module](https://github.com/trendmicro/tm-v1-api-mockup/issues).
-
-### Discussion
-
-If you need support or you wish to engage a discussion about the Trend Vision One platform, feel free to join us on our [Forums](https://success.trendmicro.com/forum/s/topic/0TO4T000000LH90WAG/trend-micro-vision-one).
-
-### Support
-
-Supports will be provided through the community. As this is an OSS project but not a formal Trend Micro product, formal product support is not applied.
-
-## About
-
-### Authors
-
-Trend Vision One is a product designed and developed by the company [Trend Micro](https://www.trendmicro.com).
-
-<a href="https://www.trendmicro.com" alt="Trend Micro"><img src="https://www.trendmicro.com/content/dam/trendmicro/global/en/core/images/logos/tm-logo-red-white-t.svg" width="230" /></a>
+[MIT](https://choosealicense.com/licenses/mit/)
