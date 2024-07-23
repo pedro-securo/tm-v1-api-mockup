@@ -1,4 +1,5 @@
 {
+  "priority": 1,
   "request": {
     "urlPathPattern": "/v3.0/caseManagement/cases/(.*)/contents/(.*)",
     "method": "PATCH",

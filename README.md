@@ -340,23 +340,29 @@ Below is the full list of the currently available parameters to produce the vari
 | get_oat_list                           | 200      | skip_token == 'c2tpcFRva2Vu'                                          |                                 |
 | get_oat_list                           | 400      | detected_start_date_time == 'bad_request'                             |                                 |
 | get_oat_list                           | 500      | detected_start_date_time == 'server_error'                            |                                 |
+| add_attachment                         | 201      | None                                                                  |                                 |
 | add_attachment                         | 400      | API_KEY == 'BAD_REQUEST'                                              |                                 |
 | add_attachment                         | 403      | API_KEY == 'ACCESS_DENIED'                                            |                                 |
 | add_attachment                         | 404      | API_KEY == 'NOT_FOUND'                                                |                                 |
 | add_attachment                         | 500      | API_KEY == 'SERVER_ERROR'                                             |                                 |
+| add_content_to_case                    | 201      | None                                                                  |                                 |
 | add_content_to_case                    | 400      | API_KEY == 'BAD_REQUEST'                                              |                                 |
 | add_content_to_case                    | 403      | API_KEY == 'ACCESS_DENIED'                                            |                                 |
 | add_content_to_case                    | 404      | API_KEY == 'NOT_FOUND'                                                |                                 |
 | add_content_to_case                    | 500      | API_KEY == 'SERVER_ERROR'                                             |                                 |
+| create_case                            | 201      | None                                                                  |                                 |
 | create_case                            | 400      | API_KEY == 'BAD_REQUEST'                                              |                                 |
 | create_case                            | 403      | API_KEY == 'ACCESS_DENIED'                                            |                                 |
 | create_case                            | 500      | API_KEY == 'SERVER_ERROR'                                             |                                 |
+| delete_attachment                      | 204      | None                                                                  |                                 |
 | delete_attachment                      | 403      | API_KEY == 'ACCESS_DENIED'                                            |                                 |
 | delete_attachment                      | 404      | API_KEY == 'NOT_FOUND'                                                |                                 |
 | delete_attachment                      | 500      | API_KEY == 'SERVER_ERROR'                                             |                                 |
+| delete_case_by_content_id              | 204      | None                                                                  |                                 |
 | delete_case_by_content_id              | 403      | API_KEY == 'ACCESS_DENIED'                                            |                                 |
 | delete_case_by_content_id              | 404      | API_KEY == 'NOT_FOUND'                                                |                                 |
 | delete_case_by_content_id              | 500      | API_KEY == 'SERVER_ERROR'                                             |                                 |
+| download_attachment_by_id              | 200      | None                                                                  |                                 |
 | download_attachment_by_id              | 403      | API_KEY == 'ACCESS_DENIED'                                            |                                 |
 | download_attachment_by_id              | 404      | API_KEY == 'NOT_FOUND'                                                |                                 |
 | download_attachment_by_id              | 500      | API_KEY == 'SERVER_ERROR'                                             |                                 |
@@ -377,11 +383,13 @@ Below is the full list of the currently available parameters to produce the vari
 | get_cases                              | 400      | API_KEY == 'BAD_REQUEST'                                              |                                 |
 | get_cases                              | 403      | API_KEY == 'ACCESS_DENIED'                                            |                                 |
 | get_cases                              | 500      | API_KEY == 'SERVER_ERROR'                                             |                                 |
+| update_case                            | 204      | None                                                                  |                                 |
 | update_case                            | 400      | API_KEY == 'BAD_REQUEST'                                              |                                 |
 | update_case                            | 403      | API_KEY == 'ACCESS_DENIED'                                            |                                 |
 | update_case                            | 404      | API_KEY == 'NOT_FOUND'                                                |                                 |
 | update_case                            | 412      | API_KEY == 'CONDITION_NOT_MET'                                        |                                 |
 | update_case                            | 500      | API_KEY == 'SERVER_ERROR'                                             |                                 |
+| update_case_content                    | 204      | None                                                                  |                                 |
 | update_case_content                    | 400      | API_KEY == 'BAD_REQUEST'                                              |                                 |
 | update_case_content                    | 403      | API_KEY == 'ACCESS_DENIED'                                            |                                 |
 | update_case_content                    | 404      | API_KEY == 'NOT_FOUND'                                                |                                 |
