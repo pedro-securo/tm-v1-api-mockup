@@ -370,6 +370,7 @@ Below is the full list of the currently available parameters to produce the vari
 | get_case_content_by_content_id         | 403      | API_KEY == 'ACCESS_DENIED'                                            |                                 |
 | get_case_content_by_content_id         | 404      | API_KEY == 'NOT_FOUND'                                                |                                 |
 | get_case_content_by_content_id         | 500      | API_KEY == 'SERVER_ERROR'                                             |                                 |
+| get_case_contents_by_case_id           | 200      | skip_token == 'c2tpcFRva2Vu'                                          |                                 |
 | get_case_contents_by_case_id           | 200      | None                                                                  |                                 |
 | get_case_contents_by_case_id           | 400      | API_KEY == 'BAD_REQUEST'                                              |                                 |
 | get_case_contents_by_case_id           | 403      | API_KEY == 'ACCESS_DENIED'                                            |                                 |
@@ -379,6 +380,7 @@ Below is the full list of the currently available parameters to produce the vari
 | get_case_details_by_id                 | 403      | API_KEY == 'ACCESS_DENIED'                                            |                                 |
 | get_case_details_by_id                 | 404      | API_KEY == 'NOT_FOUND'                                                |                                 |
 | get_case_details_by_id                 | 500      | API_KEY == 'SERVER_ERROR'                                             |                                 |
+| get_cases                              | 200      | skip_token == 'c2tpcFRva2Vu'                                          |                                 |
 | get_cases                              | 200      | None                                                                  |                                 |
 | get_cases                              | 400      | API_KEY == 'BAD_REQUEST'                                              |                                 |
 | get_cases                              | 403      | API_KEY == 'ACCESS_DENIED'                                            |                                 |

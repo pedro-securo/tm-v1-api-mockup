@@ -26,7 +26,7 @@
     "jsonBody": {
       "totalCount": 2,
       "count": 2,
-      "nextLink": "https://api.xdr.trendmicro.com/v3.0/oat/detection?startDateTime=2020-06-01T02:12:56&endDateTime=2020-06-02T02:12:56&nextBatchToken=eyJ2YWxpZF91bnRpbCI6IDEwMDAwMDAwMDB9",
+      "nextLink": "https://{{request.host}}{{request.path}}?skipToken=c2tpcFRva2Vu",
       "items": [
         {
           "source": "endpointActivityData",

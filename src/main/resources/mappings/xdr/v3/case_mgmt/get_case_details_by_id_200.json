@@ -1,5 +1,5 @@
 {
-  "priority": 9,
+  "priority": 99,
   "request": {
     "urlPathPattern": "/v3.0/caseManagement/cases/(.*)",
     "method": "GET"
