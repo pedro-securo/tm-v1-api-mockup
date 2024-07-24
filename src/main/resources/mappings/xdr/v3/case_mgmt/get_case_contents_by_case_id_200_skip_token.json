@@ -38,7 +38,6 @@
           "updatedDateTime": "2023-10-07T09:49:21Z"
         }
       ],
-      "nextLink": "https://{{request.host}}{{request.path}}?skipToken=c2tpcFRva2Vu",
       "totalCount": 100
     },
     "headers": {
