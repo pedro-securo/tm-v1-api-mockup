@@ -337,7 +337,7 @@ Below is the full list of the currently available parameters to produce the vari
 | get_alert_list                         | 500      | start_date_time == 'server_error'                                     |                                 |
 | get_oat_list                           | 200      | detected_start_date_time == random string                             |                                 |
 | get_oat_list                           | 200      | detected_start_date_time == 'next_link'                               |                                 |
-| get_oat_list                           | 200      | skip_token == 'c2tpcFRva2Vu'                                          |                                 |
+| get_oat_list                           | 200      | nextBatchToken == 'c2tpcFRva2Vu'                                      |                                 |
 | get_oat_list                           | 400      | detected_start_date_time == 'bad_request'                             |                                 |
 | get_oat_list                           | 500      | detected_start_date_time == 'server_error'                            |                                 |
 | add_attachment                         | 201      | None                                                                  |                                 |
@@ -397,6 +397,33 @@ Below is the full list of the currently available parameters to produce the vari
 | update_case_content                    | 404      | API_KEY == 'NOT_FOUND'                                                |                                 |
 | update_case_content                    | 412      | API_KEY == 'CONDITION_NOT_MET'                                        |                                 |
 | update_case_content                    | 500      | API_KEY == 'SERVER_ERROR'                                             |                                 |
+| get_active_data_pipelines              | 200      | None                                                                  |                                 |
+| get_active_data_pipelines              | 500      | API_KEY == 'SERVER_ERROR'                                             |                                 |
+| get_oat_event_pkgs                     | 200      | pageToken == 'c2tpcFRva2Vu'                                           |                                 |
+| get_oat_event_pkgs                     | 200      | None                                                                  |                                 |
+| get_oat_event_pkgs                     | 400      | API_KEY == 'BAD_REQUEST'                                              |                                 |
+| get_oat_event_pkgs                     | 403      | API_KEY == 'ACCESS_DENIED'                                            |                                 |
+| get_oat_event_pkgs                     | 404      | API_KEY == 'NOT_FOUND'                                                |                                 |
+| get_oat_event_pkgs                     | 500      | API_KEY == 'SERVER_ERROR'                                             |                                 |
+| get_oat_pkg                            | 200      | None                                                                  |                                 |
+| get_oat_pkg                            | 400      | API_KEY == 'BAD_REQUEST'                                              |                                 |
+| get_oat_pkg                            | 403      | API_KEY == 'ACCESS_DENIED'                                            |                                 |
+| get_oat_pkg                            | 404      | API_KEY == 'NOT_FOUND'                                                |                                 |
+| get_oat_pkg                            | 500      | API_KEY == 'SERVER_ERROR'                                             |                                 |
+| get_pipeline_settings                  | 200      | None                                                                  |                                 |
+| get_pipeline_settings                  | 400      | API_KEY == 'BAD_REQUEST'                                              |                                 |
+| get_pipeline_settings                  | 404      | API_KEY == 'NOT_FOUND'                                                |                                 |
+| get_pipeline_settings                  | 500      | API_KEY == 'SERVER_ERROR'                                             |                                 |
+| modify_settings                        | 204      | None                                                                  |                                 |
+| modify_settings                        | 400      | API_KEY == 'BAD_REQUEST'                                              |                                 |
+| modify_settings                        | 404      | API_KEY == 'NOT_FOUND'                                                |                                 |
+| modify_settings                        | 412      | if_match == \"precondition_failed\"                                   |                                 |
+| modify_settings                        | 500      | API_KEY == 'SERVER_ERROR'                                             |                                 |
+| register                               | 201      | None                                                                  |                                 |
+| register                               | 400      | API_KEY == 'BAD_REQUEST'                                              |                                 |
+| register                               | 500      | API_KEY == 'SERVER_ERROR'                                             |                                 |
+| unregister                             | 207      | None                                                                  |                                 |
+| unregister                             | 500      | API_KEY == 'SERVER_ERROR'                                             |                                 |
 
 ## Contributing
 

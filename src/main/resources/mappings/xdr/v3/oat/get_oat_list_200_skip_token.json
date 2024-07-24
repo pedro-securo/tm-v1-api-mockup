@@ -4,7 +4,7 @@
     "urlPath": "/v3.0/oat/detections",
     "method": "GET",
     "queryParameters": {
-      "skipToken": {
+      "nextBatchToken": {
         "equalTo": "c2tpcFRva2Vu"
       }
     }

@@ -26,7 +26,7 @@
     "jsonBody": {
       "totalCount": 2,
       "count": 2,
-      "nextLink": "https://{{request.host}}{{request.path}}?skipToken=c2tpcFRva2Vu",
+      "nextLink": "https://{{request.host}}{{request.path}}?nextBatchToken=c2tpcFRva2Vu",
       "items": [
         {
           "source": "endpointActivityData",
